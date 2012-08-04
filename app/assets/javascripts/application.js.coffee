@@ -7,7 +7,7 @@
 #= require backbone_datalink
 #= require backbone.marionette-0.9.6-dev
 
-#= require_tree ../templates
+#= require_tree ./templates
 
 #= require initialisation
 #= require_tree ./backbone/models
