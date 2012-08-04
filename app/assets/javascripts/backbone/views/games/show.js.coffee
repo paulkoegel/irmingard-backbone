@@ -9,5 +9,5 @@ class IG.Views.GamesShow extends Backbone.Marionette.ItemView
     @template = JST['games/show']
 
   render: ->
-    $(@el).html(@template())
+    $(@el).html @template()
     @

@@ -15,16 +15,14 @@ IG.Routers     = {}
 IG.Views       = {}
 IG.Controllers = {}
 
-IG.addRegions
-  contentRegion: '#l-content'
-
 IG.vent = new Backbone.Marionette.EventAggregator()
 
-AppLayout = Backbone.Marionette.Layout.extend
-  template: JST['layouts/application']
+class IG.AppLayout extends Backbone.Marionette.Layout
+  template: 'layouts/application'
+  el: 'body'
   regions:
-    #menu: "#l-navigation"
-    content: "#l-content"
+    header: "#l-header-container"
+    content: "#l-content-container"
 
 IG.addInitializer (option) ->
   IG.appRouter = new IG.Routers.AppRouter()
@@ -34,9 +32,10 @@ IG.addInitializer (option) ->
   #IG.Controllers.pages = new IG.Controllers.Pages()
   #IG.vent.bind 'enterDealsShow', IG.Controllers.deals.enterShow
 
-  appLayout = new AppLayout()
+  appLayout = new IG.AppLayout()
   appLayout.render()
-  gamesShow = IG.contentRegion.show new IG.Views.GamesShow()
+  appLayout.header.show new IG.Views.Navigation()
+  appLayout.content.show new IG.Views.GamesShow()
 
 $ ->
   IG.start()

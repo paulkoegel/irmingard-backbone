@@ -9,10 +9,9 @@ class GamesController < ApplicationController
   def show
     @game = Game.new
     respond_to do |format|
-      format.html { render :show }
+      format.html { render 'shared/nothing' }
       format.js { render :json => @game }
     end
-    #render :json => Game.new
   end
 
 end

@@ -1,4 +1,4 @@
-%nav#l-navigation
-
-#l-content
-  %h1 WALLMART
+#l-page-container
+  #l-header-container
+  #l-content-container
+  #l-footer-container
