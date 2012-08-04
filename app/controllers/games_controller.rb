@@ -7,7 +7,12 @@ class GamesController < ApplicationController
   end
 
   def show
-    render :json => Game.new
+    @game = Game.new
+    respond_to do |format|
+      format.html { render :show }
+      format.js { render :json => @game }
+    end
+    #render :json => Game.new
   end
 
 end
