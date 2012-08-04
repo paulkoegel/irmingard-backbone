@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: irmingard_backbone_development
+  pool: 5
+  username: root
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: irmingard_backbone_test
+  pool: 5
+  username: root
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: irmingard_backbone_production
+  pool: 5
+  username: root
+  password:
