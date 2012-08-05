@@ -21,8 +21,8 @@ class IG.AppLayout extends Backbone.Marionette.Layout
   template: 'layouts/application'
   el: 'body'
   regions:
-    header: "#l-header-container"
-    content: "#l-content-container"
+    header: '#l-header-container'
+    content: '#l-content-container'
 
 IG.addInitializer (option) ->
   IG.appRouter = new IG.Routers.AppRouter()
