@@ -1,1 +1,3 @@
-card
+= @value
+of 
+= @suit
