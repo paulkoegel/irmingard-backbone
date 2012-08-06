@@ -26,22 +26,25 @@ class IG.AppLayout extends Backbone.Marionette.Layout
 
 IG.addInitializer (option) ->
   IG.appRouter = new IG.Routers.AppRouter()
+
   Backbone.history.start
     pushState: true
-  #IG.Controllers.deals = new IG.Controllers.Deals()
-  #IG.Controllers.pages = new IG.Controllers.Pages()
-  #IG.vent.bind 'enterDealsShow', IG.Controllers.deals.enterShow
 
   IG.appLayout = new IG.AppLayout()
   IG.appLayout.render()
   IG.appLayout.header.show new IG.Views.Navigation()
+
   IG.column_1 = new IG.Models.Column
   _.each _.range(1, 10), (index) ->
     IG.column_1.get('cards').add new IG.Models.Card
       _id: index
       suit: 'clubs'
       value: index
-  IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: new IG.Collections.Columns(model: IG.column_1))
+
+  #IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: new IG.Collections.Columns(model: IG.column_1))
+  IG.appLayout.content.show(new IG.Views.ColumnsShow(collection: IG.column_1.get('cards')))
+  #IG.appLayout.content.show(new IG.Views.CardsShow(model: IG.column_1.get('cards').first()))
+
 
 $ ->
   IG.start()

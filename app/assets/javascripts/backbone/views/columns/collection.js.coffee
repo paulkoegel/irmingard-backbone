@@ -2,12 +2,13 @@
 
 class IG.Views.ColumnsCollection extends Backbone.Marionette.CompositeView
   tagName: 'div'
-  id: 'columns'
+  id: 'columns-container'
+  itemView: IG.Views.ColumnsShow
 
-  initialize: ->
-    _.bindAll @, 'render'
-    @template = JST['columns/collection']
+  # initialize: ->
+  #   _.bindAll @, 'render'
+  #   @template = JST['columns/collection']
 
-  render: ->
-    $(@el).html @template()
-    @
+  # render: ->
+  #   $(@el).html @template()
+  #   @
