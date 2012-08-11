@@ -41,9 +41,12 @@ IG.addInitializer (option) ->
       suit: 'clubs'
       value: index
 
-  IG.da_columnsCollection = new IG.Collections.Columns()
-  IG.da_columnsCollection.add(IG.column_1)
-  IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.da_columnsCollection)
+  # the following works, if there are no .show calls afterwards!
+  # IG.appLayout.content.show new IG.Views.ColumnsShow(model: IG.column_1)
+
+  IG.daColumnsCollection = new IG.Collections.Columns()
+  IG.daColumnsCollection.add IG.column_1
+  IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.daColumnsCollection)
   #new IG.Collections.Columns(model: IG.column_1))
   #IG.appLayout.content.show(new IG.Views.ColumnsShow(collection: IG.column_1.get('cards')))
   #IG.appLayout.content.show(new IG.Views.CardsShow(model: IG.column_1.get('cards').first()))
