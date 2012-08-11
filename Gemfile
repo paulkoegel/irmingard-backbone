@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8.rc2'
+gem 'rails', '~>3.2'
 gem 'pg'
 gem 'unicorn'
 gem 'jquery-rails'
