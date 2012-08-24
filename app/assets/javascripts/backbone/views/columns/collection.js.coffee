@@ -2,7 +2,7 @@
 
 class IG.Views.ColumnsCollection extends Backbone.Marionette.CompositeView
   tagName: 'div'
-  id: 'columns-container'
+  className: 'columns-container'
   template: 'columns/collection'
   itemView: IG.Views.ColumnsShow
-  itemViewContainer: '#columns-wrapper'
+  itemViewContainer: '.columns-wrapper'

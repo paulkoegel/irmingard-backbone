@@ -1,4 +1,4 @@
-%ul#navigation-entries
+%ul.navigation-entries
   %li.navigation-entry
     Home
   %li.navigation-entry

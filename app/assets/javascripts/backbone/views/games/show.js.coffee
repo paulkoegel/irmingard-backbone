@@ -2,7 +2,7 @@
 
 class IG.Views.GamesShow extends Backbone.Marionette.ItemView
   tagName: 'div'
-  id: 'game'
+  className: 'game'
 
   initialize: ->
     _.bindAll @, 'render'

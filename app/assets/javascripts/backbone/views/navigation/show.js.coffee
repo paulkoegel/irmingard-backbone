@@ -2,7 +2,7 @@
 
 class IG.Views.Navigation extends Backbone.Marionette.ItemView
   tagName: 'nav'
-  id: 'l-navigation'
+  className: 'l-navigation'
 
   initialize: ->
     _.bindAll @, 'render'
