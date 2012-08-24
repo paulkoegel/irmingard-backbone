@@ -5,7 +5,6 @@ class IG.Views.ColumnsShow extends Backbone.Marionette.CompositeView
   className: 'column'
   itemView: IG.Views.CardsShow
   template: 'columns/show'
-  itemViewContainer: '.column-wrapper'
 
   #cf. http://stackoverflow.com/a/11354636
   initialize: ->
