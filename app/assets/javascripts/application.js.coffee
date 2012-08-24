@@ -13,7 +13,15 @@
 #= require initialisation
 #= require_tree ./backbone/models
 #= require_tree ./backbone/collections
-#= require_tree ./backbone/views
+
+# LOADING SEQUENCE IS IMPERATIVE HERE!
+# columns/show MUST be loaded before columns/collection, unless you want to set itemView on initialization (not really the conventional pattern, so I'm rather biting this loading sequence bullet)
+#= require_directory ./backbone/views/navigation
+#= require_directory ./backbone/views/games
+#= require_directory ./backbone/views/cards
+#= require ./backbone/views/columns/show
+#= require ./backbone/views/columns/collection
+
 #= require_tree ./backbone/routers
 #= require_tree ./backbone/controllers
 
