@@ -6,7 +6,6 @@
 #= require backbone_rails_sync
 #= require backbone_datalink
 #= require backbone.marionette-0.9.10-dev
-#= require backbone-relational-0.6.0
 
 #= require_tree ./templates
 

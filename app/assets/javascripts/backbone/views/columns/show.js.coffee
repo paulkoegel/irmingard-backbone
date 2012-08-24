@@ -9,4 +9,6 @@ class IG.Views.ColumnsShow extends Backbone.Marionette.CompositeView
 
   #cf. http://stackoverflow.com/a/11354636
   initialize: ->
+    console.log 'init ColumnsShow'
+    console.log @collection
     @collection = @model.get('cards')

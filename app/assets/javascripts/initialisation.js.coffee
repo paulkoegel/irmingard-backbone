@@ -34,12 +34,14 @@ IG.addInitializer (option) ->
   IG.appLayout.render()
   IG.appLayout.header.show new IG.Views.Navigation()
 
-  IG.column_1 = new IG.Models.Column
+  IG.cards = new IG.Collections.Cards
   _.each _.range(1, 10), (index) ->
-    IG.column_1.get('cards').add new IG.Models.Card
-      _id: index
+    IG.cards.add new IG.Models.Card
       suit: 'clubs'
       value: index
+  IG.column_1 = new IG.Models.Column(cards: IG.cards)
+
+  #IG.appLayout.content.show new IG.Views.CardsShow(model: IG.cards.first())
 
   # the following works, if there are no .show calls afterwards!
   # IG.appLayout.content.show new IG.Views.ColumnsShow(model: IG.column_1)
@@ -47,6 +49,7 @@ IG.addInitializer (option) ->
   IG.daColumnsCollection = new IG.Collections.Columns()
   IG.daColumnsCollection.add IG.column_1
   IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.daColumnsCollection)
+
   #new IG.Collections.Columns(model: IG.column_1))
   #IG.appLayout.content.show(new IG.Views.ColumnsShow(collection: IG.column_1.get('cards')))
   #IG.appLayout.content.show(new IG.Views.CardsShow(model: IG.column_1.get('cards').first()))
