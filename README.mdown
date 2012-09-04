@@ -16,3 +16,28 @@ Irmingard runs on Ruby on Rails 3.2. It uses Faye and AJAX to synchronize game s
 Etymology
 ---------
 Irmingard is the name of the aunt of an acquaintance of mine who introduced me to the game. Credit where credit is due, so the whole game's named after her. There must be other names for this game but I've never seen it anywhere else.
+
+
+Objects
+=======
+
+Stack
+-----
+The stack of shuffled and cards in your hand, you can only see their back.
+
+Pile
+----
+Discard piles where all the cards land in the following order: ace, 2, 3, ..., queen, king
+There's 8 of them, two per suit.
+
+Column
+------
+There are 9 columns on the board. at the start of the game they're filled with 1, 2, 3, 4, 5, 4, 3, 2, and 1 cards (left to right). Only the last card of each column is open and movable.
+
+Card
+----
+The usual pawns of this game.
+104 in total:
+ + 2 sets of cards
+   - in 4 suits (hearts, diamonds, spades, clubs)
+     * with values from 1 (ace), 2, 3, ... 10, 11 (jack), 12 (queen), 13 (king)

@@ -1,29 +1,30 @@
 IG.setupGame = ->
-  IG.column_1 = new IG.Models.Column(_id: 1)
-  _.each _.range(1, 10), (index) ->
-    IG.column_1.get('cards').add new IG.Models.Card
-      _id: index
-      suit: 'clubs'
-      value: index
+  IG.stack =  new IG.Models.Stack(_id: 1)
+  decks = ['a', 'b']
+  suits = ['diamonds', 'hearts', 'spades', 'clubs']
+  cardsPerSuit = 13
 
-  IG.column_2 = new IG.Models.Column(_id: 2)
-  _.each _.range(1, 10), (index) ->
-    IG.column_2.get('cards').add new IG.Models.Card
-      _id: index
-      suit: 'hearts'
-      value: index
+  _.each decks, (deck) ->
+    _.each suits, (suit) ->
+      _.times cardsPerSuit, (index) ->
+          card = new IG.Models.Card
+            deck: deck
+            suit: suit
+            value: index+1
+            column: null
+            pile: null
+            stack: true
+            position: IG.stack.get('cards').length
+          card.setSlug()
+          IG.stack.get('cards').add card
+  IG.stack.shuffle()
 
-  IG.daColumnsCollection = new IG.Collections.Columns()
-  IG.daColumnsCollection.add IG.column_1
-  IG.daColumnsCollection.add IG.column_2
+  IG.columns = new IG.Collections.Columns()
+  _.each [1, 2, 3, 4, 5, 4, 3, 2, 1], (cardsPerColumn, columnIndex) ->
+    column = new IG.Models.Column(_id: columnIndex)
+    IG.columns.add column
+    _.times cardsPerColumn, ->
+      column.get('cards').add IG.stack.get('cards').pop(silent: true)
+    column.get('cards').models[column.get('cards').length-1].set('open', true)
 
-  _.times 7, (i) ->
-    column = new IG.Models.Column(_id: i + 3)
-    _.each _.range(1, 10), (index) ->
-      column.get('cards').add new IG.Models.Card
-        _id: index
-        suit: 'spades'
-        value: index
-    IG.daColumnsCollection.add column
-
-  IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.daColumnsCollection)
+  IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.columns)
