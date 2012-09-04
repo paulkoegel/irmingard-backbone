@@ -13,4 +13,5 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   serializeData: ->
     jsonData = @model.toJSON()
     jsonData.humanReadableShort = @model.humanReadableShort()
+    jsonData.imagePath = @model.imagePath()
     jsonData

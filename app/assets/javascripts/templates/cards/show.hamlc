@@ -1,1 +1,1 @@
-= @humanReadableShort
+%img{:src => "#{@imagePath}"}
