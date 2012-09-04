@@ -11,6 +11,8 @@
 #= require_tree ./templates
 
 #= require initialisation
+#= require setup/app
+#= require setup/game
 #= require_tree ./backbone/models
 #= require_tree ./backbone/collections
 
