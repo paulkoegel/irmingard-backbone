@@ -18,3 +18,7 @@ class IG.Models.Column extends Backbone.RelationalModel
   ]
 
   initialize: (attributes) ->
+    @on 'add:cards remove:cards', @updateDraggability
+
+  updateDraggability: (movedCard, cardsCollection) ->
+    console.log "updating draggability for column: #{@get('_id')}"

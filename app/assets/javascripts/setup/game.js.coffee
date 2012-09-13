@@ -27,7 +27,6 @@ IG.setupGame = ->
       cardToAdd = IG.stack.get('cards').pop(silent: true)
       if cardIndex + 1 == cardsPerColumn
         cardToAdd.set 'open', true
-      column.get('cards').add cardToAdd
-      #column.get('cards').models[column.get('cards').length-1].set('open', true)
+      column.get('cards').add cardToAdd, silent: true
 
   IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.columns)

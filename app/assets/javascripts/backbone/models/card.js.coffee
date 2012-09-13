@@ -65,12 +65,12 @@ class IG.Models.Card extends Backbone.RelationalModel
     "/assets/#{@humanReadable()}.gif"
 
   isDropTargetFor: (card) ->
-    console.log 'isDroptarget?'
-    console.log "values: @ #{@get('value')}, card #{card.get('value')}"
-    console.log "colours: @ #{@colour()}, card #{card.colour()}"
     if @get('value') - 1 == card.get('value') and @colour() != card.colour()
-      x = true
+      true
     else
-      x = false
-    console.log x
-    x
+      false
+
+  moveTo: (newColumn) ->
+    oldColumn = @get('column')
+    oldColumn.get('cards').remove @
+    newColumn.get('cards').add @
