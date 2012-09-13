@@ -1,2 +1,1 @@
--#%li.m-card{'draggable': @draggable}
 %img{:src => "#{@imagePath}"}

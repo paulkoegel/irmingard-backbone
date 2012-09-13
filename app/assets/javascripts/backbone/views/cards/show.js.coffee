@@ -1,19 +1,37 @@
 'use strict'
 
 class IG.Views.CardsShow extends Backbone.Marionette.ItemView
-  template: 'cards/show'
   tagName: 'li'
   className: 'm-card'
 
+  initialize: ->
+    _.bindAll @, 'render'
+    @template = 'cards/show'
+
   render: ->
-    $(@el).attr 'draggable', @model.draggable()
-    super
+    super()
+    # set 'draggable' attribute on li.m-card
+    $(@el).attr 'draggable', "#{@model.draggable()}"
 
   events:
-    'dragstart .m-card[draggable="true"]': 'handleDragStart'
-    'dragend .m-card[draggable="true"]': 'handleDragEnd'
+    'dragstart': 'handleDragStart'
+    'dragenter': 'handleDragEnter'
+    'dragleave': 'handleDragLeave'
+    'dragend': 'handleDragEnd'
+
+
+  getDragTarget: ($dragEventTarget) ->
+    if $dragEventTarget.hasClass('m-card')
+      $dragTarget = $dragEventTarget
+    else
+      $parent = $dragEventTarget.parent('.m-card')
+      if $parent.length
+        $dragTarget = $parent
+    $dragTarget
 
   handleDragStart: (event) ->
+    return false unless @model.draggable()
+    IG.currentlyDraggedCard = @model
     #event.stopPropagation()
     #event.preventDefault()
     console.log 'started dragging'
@@ -27,6 +45,33 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   handleDragEnd: (event) ->
     console.log 'stopped dragging'
     $(@el).removeClass 'low-opacity'
+
+  handleDragEnter: (event) ->
+    # prevent dropping on self
+    return if @model == IG.currentlyDraggedCard
+    # prevent dropping on un-open cards
+    return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
+    console.log '---'
+    console.log IG.currentlyDraggedCard.humanReadableShort()
+    console.log @model.humanReadableShort()
+    #return unless event
+    # $dragEventTarget = $(event.target)
+    # console.log $dragEventTarget
+    # if $dragEventTarget.hasClass('m-card')
+    #   $dragTarget = $dragEventTarget
+    # else
+    #   $parent = $dragEventTarget.parent('.m-card')
+    #   if $parent.length
+    #     $dragTarget = $parent
+    # console.log $dragTarget
+    @getDragTarget($ event.target).addClass 'drop-hovered'
+
+  handleDragLeave: (event) ->
+    console.log 'leaving'
+    console.log $(event.target)
+    @getDragTarget($ event.target).removeClass 'drop-hovered'
+
+    #console.log $(originalEvent.target)
 
   # custom function to put some additional meat on 'this' used in the CardsShow template
   # manually adding the output of certain functions that would otherwise

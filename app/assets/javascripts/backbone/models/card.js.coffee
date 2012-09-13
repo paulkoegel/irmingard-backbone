@@ -17,6 +17,12 @@ class IG.Models.Card extends Backbone.RelationalModel
 
   initialize: (attributes) ->
 
+  colour: ->
+    if (@get('suit') == 'diamonds') or (@get('suit') == 'hearts')
+      'red'
+    else
+      'black'
+
   humanValue: ->
     switch @get('value')
       when 1
@@ -47,7 +53,7 @@ class IG.Models.Card extends Backbone.RelationalModel
         null
 
   draggable: ->
-    @get('open') + ''
+    @get 'open'
 
   humanReadable: ->
     "#{@humanValue()}_of_#{@get('suit')}"
@@ -57,3 +63,14 @@ class IG.Models.Card extends Backbone.RelationalModel
 
   imagePath: ->
     "/assets/#{@humanReadable()}.gif"
+
+  isDropTargetFor: (card) ->
+    console.log 'isDroptarget?'
+    console.log "values: @ #{@get('value')}, card #{card.get('value')}"
+    console.log "colours: @ #{@colour()}, card #{card.colour()}"
+    if @get('value') - 1 == card.get('value') and @colour() != card.colour()
+      x = true
+    else
+      x = false
+    console.log x
+    x
