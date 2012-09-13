@@ -27,4 +27,6 @@
 #= require_tree ./backbone/routers
 #= require_tree ./backbone/controllers
 
+#= require jquery_events
+
 #= require_tree .

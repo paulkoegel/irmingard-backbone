@@ -23,8 +23,11 @@ IG.setupGame = ->
   _.each [1, 2, 3, 4, 5, 4, 3, 2, 1], (cardsPerColumn, columnIndex) ->
     column = new IG.Models.Column(_id: columnIndex)
     IG.columns.add column
-    _.times cardsPerColumn, ->
-      column.get('cards').add IG.stack.get('cards').pop(silent: true)
-    column.get('cards').models[column.get('cards').length-1].set('open', true)
+    _.times cardsPerColumn, (cardIndex) ->
+      cardToAdd = IG.stack.get('cards').pop(silent: true)
+      if cardIndex + 1 == cardsPerColumn
+        cardToAdd.set 'open', true
+      column.get('cards').add cardToAdd
+      #column.get('cards').models[column.get('cards').length-1].set('open', true)
 
   IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.columns)

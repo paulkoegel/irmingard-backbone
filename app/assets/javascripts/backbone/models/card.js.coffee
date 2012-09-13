@@ -46,6 +46,9 @@ class IG.Models.Card extends Backbone.RelationalModel
       else
         null
 
+  draggable: ->
+    @get('open') + ''
+
   humanReadable: ->
     "#{@humanValue()}_of_#{@get('suit')}"
 

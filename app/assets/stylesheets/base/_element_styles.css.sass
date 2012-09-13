@@ -3,3 +3,11 @@
 
 body
   background-color: $background-colour
+
+// Prevent the text contents of draggable elements from being selectable
+[draggable='true']
+  +user-select(none)
+  cursor: move
+
+.low-opacity
+  +opacity(0.4)
