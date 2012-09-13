@@ -1,15 +1,2 @@
-%li.m-card{'draggable': @draggable}
-  %div
-    aa
-    %br
-    bbb
-    %br
-    ccc
-    %br
-    ddd
-    %br
-    = @open
-    %br
-    = @draggable
-
--#%img{:src => "#{@imagePath}"}
+-#%li.m-card{'draggable': @draggable}
+%img{:src => "#{@imagePath}"}

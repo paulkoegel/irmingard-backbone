@@ -2,8 +2,12 @@
 
 class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   template: 'cards/show'
-  #tagName: 'li'
-  #className: 'm-card'
+  tagName: 'li'
+  className: 'm-card'
+
+  render: ->
+    $(@el).attr 'draggable', @model.draggable()
+    super
 
   events:
     'dragstart .m-card[draggable="true"]': 'handleDragStart'
