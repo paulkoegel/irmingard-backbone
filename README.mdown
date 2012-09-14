@@ -41,3 +41,8 @@ The usual pawns of this game.
  + 2 sets of cards
    - in 4 suits (hearts, diamonds, spades, clubs)
      * with values from 1 (ace), 2, 3, ... 10, 11 (jack), 12 (queen), 13 (king)
+
+
+Jasmine Javascript Specs
+========================
+$ guard-jasmine spec

@@ -32,6 +32,7 @@ group :development, :test do
   gem 'factory_girl_rails', '>=1.1.rc1'
   gem 'debugger', :platforms => :mri_19
   gem 'jasminerice'
+  gem 'guard-jasmine'
 end
 
 group :test do
