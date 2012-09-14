@@ -29,4 +29,3 @@ class IG.AppLayout extends Backbone.Marionette.Layout
 
 IG.addInitializer (option) ->
   IG.setupApp()
-  IG.setupGame()
