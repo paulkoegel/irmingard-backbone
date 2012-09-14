@@ -30,8 +30,8 @@ end
 group :development, :test do
   gem 'rspec-rails', '~>2.6'
   gem 'factory_girl_rails', '>=1.1.rc1'
-  gem 'jasmine-rails'
   gem 'debugger', :platforms => :mri_19
+  gem 'jasminerice'
 end
 
 group :test do
