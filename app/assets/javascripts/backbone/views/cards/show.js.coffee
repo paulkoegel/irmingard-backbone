@@ -42,20 +42,12 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     IG.currentlyDraggedCard = @model
     console.log 'started dragging'
     $(@el).addClass 'low-opacity'
-    # don't think i'll need these, though recommended here: http://www.html5rocks.com/en/tutorials/dnd/basics (they use them to switch the labels of a dragged element and the element it's dropped on)
-    # event.dataTransfer = event.originalEvent.dataTransfer
-    # event.dataTransfer.effectAllowed = 'move'
-    # event.dataTransfer.setData 'text/html', @innerHTML
 
   handleDragEnter: (event) ->
     return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
     @getDragTarget($ event.target).addClass 'drop-hovered'
 
   handleDragOver: (event) ->
-    # don't think I'll need the following two lines
-    # event.dataTransfer = event.originalEvent.dataTransfer
-    # event.dataTransfer.dropEffect = 'move'
-
     # the following two lines are mandatory for the 'drop' event to fire
     event.preventDefault()
     return false
