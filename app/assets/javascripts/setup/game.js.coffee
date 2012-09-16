@@ -1,7 +1,7 @@
 IG.setupGame = ->
   IG.stack =  new IG.Models.Stack(_id: 1)
   decks = ['a', 'b']
-  suits = ['diamonds', 'hearts', 'spades', 'clubs']
+  suits = ['diamonds', 'spades', 'hearts', 'clubs']
   cardsPerSuit = 13
 
   _.each decks, (deck) ->
@@ -17,7 +17,9 @@ IG.setupGame = ->
             position: IG.stack.get('cards').length
           card.setSlug()
           IG.stack.get('cards').add card
-  IG.stack.shuffle()
+
+  # TODO: disabling shuffling for easier testing and development
+  # IG.stack.shuffle()
 
   IG.columns = new IG.Collections.Columns()
   _.each [1, 2, 3, 4, 5, 4, 3, 2, 1], (cardsPerColumn, columnIndex) ->
@@ -26,7 +28,9 @@ IG.setupGame = ->
     _.times cardsPerColumn, (cardIndex) ->
       cardToAdd = IG.stack.get('cards').pop(silent: true)
       if cardIndex + 1 == cardsPerColumn
-        cardToAdd.set 'open', true
+        cardToAdd.set
+          'open': true
+          'draggable': true
       column.get('cards').add cardToAdd, silent: true
 
   IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.columns)

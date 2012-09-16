@@ -4,15 +4,16 @@ class IG.Models.Card extends Backbone.RelationalModel
   idAttribute: '_id'
   urlRoot: '/cards'
   defaults:
-    _id:      null
-    deck:     null
-    suit:     null
-    value:    null
-    column:   null
-    pile:     null
-    stack:    true
-    position: null
-    open:     false
+    _id:       null
+    deck:      null
+    suit:      null
+    value:     null
+    column:    null
+    pile:      null
+    stack:     true
+    position:  null
+    open:      false
+    draggable: false
     backImagePath: '/assets/back.gif'
 
   initialize: (attributes) ->
@@ -52,8 +53,20 @@ class IG.Models.Card extends Backbone.RelationalModel
       else
         null
 
-  draggable: ->
-    @get 'open'
+  # draggable: ->
+  #   #console.log @get 'open'
+  #   isOpen = @get 'open'
+  #   return false unless isOpen
+  #   #console.log @
+  #   #console.log @get 'column'
+  #   column = @get 'column'
+  #   # for SOME reason the cards column is empty when it's rendered by the Column's add callback (Marionette automatically rerenders the Column on add)
+  #   return false unless column
+  #   columnCardsCollection = column.get('cards')
+  #   if @isLastCardInColumn(@get 'column')
+  #     true
+  #   else
+  #     false
 
   humanReadable: ->
     "#{@humanValue()}_of_#{@get('suit')}"
@@ -70,7 +83,16 @@ class IG.Models.Card extends Backbone.RelationalModel
     else
       false
 
+  isLastCardInColumn: (column) ->
+    columnCardsCollection = column.get 'cards'
+    x = (columnCardsCollection.indexOf(@) == columnCardsCollection.length-1)
+    console.log "#{x}, #{columnCardsCollection.indexOf(@)} of #{columnCardsCollection.length-1}"
+    x
+
   moveTo: (newColumn) ->
     oldColumn = @get('column')
+    console.log 'starting to move'
     oldColumn.get('cards').remove @
+    console.log 'done removing'
     newColumn.get('cards').add @
+    console.log 'done adding'

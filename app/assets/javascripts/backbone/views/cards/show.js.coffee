@@ -7,11 +7,20 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   initialize: ->
     _.bindAll @, 'render'
     @template = 'cards/show'
+    @model.on 'change:open change:draggable', @render
+    @model.on 'change:draggable', @setDraggable
+    @setDraggable()
+    #$(@el).attr 'draggable', "#{@model.get 'draggable'}"
+
+  setDraggable: =>
+    $(@el).attr 'draggable', "#{@model.get 'draggable'}"
 
   render: ->
+    console.log "rendering #{@model.humanReadableShort()}"
     super()
     # set 'draggable' attribute on li.m-card
-    $(@el).attr 'draggable', "#{@model.draggable()}"
+    # - commented out for now b/c it has timing issues with Column's add callback - rendering of card taht has been freshly added to another column happens before the card's column attribute has been changed (handled by backbone relational)
+    # $(@el).attr 'draggable', "#{@model.draggable()}"
 
   events:
     # the implicit selector is li.m-card' and afaik there's no way to listen only to events on li.m-card[draggable="true"]
@@ -21,7 +30,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     'dragleave': 'handleDragLeave'
     'dragend':   'handleDragEnd'
     'drop':      'handleDrop'
-
 
   getDragTarget: ($dragEventTarget) ->
     if $dragEventTarget.hasClass('m-card')
@@ -33,7 +41,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     $dragTarget
 
   handleDragStart: (event) ->
-    return false unless @model.draggable()
+    return false unless @model.get 'draggable'
     IG.currentlyDraggedCard = @model
     console.log 'started dragging'
     $(@el).addClass 'low-opacity'
@@ -43,14 +51,11 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     # event.dataTransfer.setData 'text/html', @innerHTML
 
   handleDragEnter: (event) ->
-    # prevent dropping on self
-    return if @model == IG.currentlyDraggedCard
-    # prevent dropping on un-open cards
     return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
     @getDragTarget($ event.target).addClass 'drop-hovered'
 
   handleDragOver: (event) ->
-    # don't think i'll need these
+    # don't think I'll need the following two lines
     # event.dataTransfer = event.originalEvent.dataTransfer
     # event.dataTransfer.dropEffect = 'move'
 
@@ -70,10 +75,11 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     event.preventDefault()
     return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
     console.log 'DROPPED'
+    # TODO: breaks in Card.draggable(): TypeError: this.get("column") is null
+    # columnCardsCollection = this.get('column').get('cards');
     IG.currentlyDraggedCard.moveTo @model.get('column')
     @getDragTarget($ event.target).removeClass 'drop-hovered'
     IG.currentlyDraggedCard = undefined
-
 
   # custom function to put some additional meat on 'this' used in the CardsShow template
   # manually adding the output of certain functions that would otherwise
@@ -84,5 +90,5 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     jsonData = @model.toJSON()
     jsonData.humanReadableShort = @model.humanReadableShort()
     jsonData.imagePath = @model.imagePath()
-    jsonData.draggable = @model.draggable()
+    #jsonData.draggable = @model.draggable()
     jsonData
