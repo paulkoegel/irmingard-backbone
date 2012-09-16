@@ -18,9 +18,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   render: ->
     console.log "rendering #{@model.humanReadableShort()}"
     super()
-    # set 'draggable' attribute on li.m-card
-    # - commented out for now b/c it has timing issues with Column's add callback - rendering of card taht has been freshly added to another column happens before the card's column attribute has been changed (handled by backbone relational)
-    # $(@el).attr 'draggable', "#{@model.draggable()}"
 
   events:
     # the implicit selector is li.m-card' and afaik there's no way to listen only to events on li.m-card[draggable="true"]

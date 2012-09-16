@@ -53,21 +53,6 @@ class IG.Models.Card extends Backbone.RelationalModel
       else
         null
 
-  # draggable: ->
-  #   #console.log @get 'open'
-  #   isOpen = @get 'open'
-  #   return false unless isOpen
-  #   #console.log @
-  #   #console.log @get 'column'
-  #   column = @get 'column'
-  #   # for SOME reason the cards column is empty when it's rendered by the Column's add callback (Marionette automatically rerenders the Column on add)
-  #   return false unless column
-  #   columnCardsCollection = column.get('cards')
-  #   if @isLastCardInColumn(@get 'column')
-  #     true
-  #   else
-  #     false
-
   humanReadable: ->
     "#{@humanValue()}_of_#{@get('suit')}"
 
