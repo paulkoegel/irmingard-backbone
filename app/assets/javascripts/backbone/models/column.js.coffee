@@ -30,23 +30,34 @@ IG.Models.Column = Backbone.RelationalModel.extend
     lastCard.set 'draggable', true
 
   handleAdd: (movedCard, cardsCollection) ->
-    _.each @draggableCards, (draggableCard) ->
+    console.log 'handle add'
+    cardsCollection.each (card) ->
+      card.set('draggable', false)
+    _.each @draggableCards(), (draggableCard) ->
       unless draggableCard.get 'draggable'
         draggableCard.set 'draggable', true
 
   orderedUpToIndex: ->
     cards = @get('cards').toArray().reverse()
+    console.log _.map cards, (card) ->
+      card.short()
+    console.log cards.length
     index = 0
-    while index < cards.length
+    while index < cards.length-1
       if cards[index+1].isDropTargetFor(cards[index])
         index++
       else break
+    console.log "ordr up to #{index}"
     return index
 
   draggableCards: ->
     cards = @get('cards')
     # minus to start from the end of the array, +1 since -1 and not 0 is the first index when starting at the end of the array
-    cards.toArray().slice -(@orderedUpToIndex()+1)
+    x = cards.toArray().slice -(@orderedUpToIndex()+1)
+    t = _.map x, (y) ->
+      y.short()
+    console.log t
+    x
 
   cardsBelow: (card) ->
     cards = @get('cards')
