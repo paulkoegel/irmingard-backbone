@@ -1,0 +1,1 @@
+.m-card_placeholder.m-card{draggable: 'false', data: {'column-index': @_id}}

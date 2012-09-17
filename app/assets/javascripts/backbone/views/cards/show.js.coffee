@@ -41,8 +41,10 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     $(@el).addClass 'low-opacity'
 
   handleDragEnter: (event) ->
-    return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
-    @getDragTarget($ event.target).addClass 'drop-hovered'
+    console.log "handleDragEnter: #{@isDropTarget()}"
+    console.log $(event.target)
+    return false unless @isDropTarget() #@model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
+    @getDragTarget($ event.target).addClass 'is-drop-hovered'
 
   handleDragOver: (event) ->
     # the following two lines are mandatory for the 'drop' event to fire
@@ -50,7 +52,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     return false
 
   handleDragLeave: (event) ->
-    @getDragTarget($ event.target).removeClass 'drop-hovered'
+    @getDragTarget($ event.target).removeClass 'is-drop-hovered'
 
   handleDragEnd: (event) ->
     $(@el).removeClass 'low-opacity'
@@ -59,7 +61,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   handleDrop: (event) ->
     event.stopPropagation()
     event.preventDefault()
-    return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
+    return unless @isDropTarget() #@model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
 
     if IG.currentlyDraggedCard.isLastCardInColumn(IG.currentlyDraggedCard.get('column'))
       IG.currentlyDraggedCard.moveTo @model.get('column')
@@ -69,7 +71,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
       _.each cardsToMove, (card) =>
         card.moveTo @model.get('column')
 
-    @getDragTarget($ event.target).removeClass 'drop-hovered'
+    @getDragTarget($ event.target).removeClass 'is-drop-hovered'
     IG.currentlyDraggedCard = undefined
 
   # custom function to put some additional meat on 'this' used in the CardsShow template
@@ -82,3 +84,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     jsonData.humanReadableShort = @model.humanReadableShort()
     jsonData.imagePath = @model.imagePath()
     jsonData
+
+  isDropTarget: ->
+    @model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
