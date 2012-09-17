@@ -60,7 +60,15 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     event.stopPropagation()
     event.preventDefault()
     return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
-    IG.currentlyDraggedCard.moveTo @model.get('column')
+
+    if IG.currentlyDraggedCard.isLastCardInColumn(IG.currentlyDraggedCard.get('column'))
+      IG.currentlyDraggedCard.moveTo @model.get('column')
+    else
+      cardsToMove = IG.currentlyDraggedCard.get('column').cardsBelow(IG.currentlyDraggedCard)
+      cardsToMove.unshift IG.currentlyDraggedCard
+      _.each cardsToMove, (card) =>
+        card.moveTo @model.get('column')
+
     @getDragTarget($ event.target).removeClass 'drop-hovered'
     IG.currentlyDraggedCard = undefined
 
