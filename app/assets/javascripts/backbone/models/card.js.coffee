@@ -49,7 +49,7 @@ IG.Models.Card = Backbone.RelationalModel.extend
         '♥'
       when 'spades'
         '♠'
-      when'clubs'
+      when 'clubs'
         '♣'
       else
         null

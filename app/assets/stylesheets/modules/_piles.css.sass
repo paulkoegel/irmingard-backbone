@@ -1,0 +1,19 @@
+#piles-wrapper
+  +pie-clearfix
+  margin-left: 130px
+  line-height: 62px
+
+.m-pile
+  float: left
+  margin-right: 20px
+  width: 62px
+  &:nth-child(2n+2)
+    margin-right: 30px
+
+.m-pile_diamonds, .m-pile_hearts
+  @extend .m-pile
+  color: #bc0000
+
+.m-pile_clubs, .m-pile_spades
+  @extend .m-pile
+  color: #000

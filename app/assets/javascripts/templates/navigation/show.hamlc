@@ -1,3 +1,4 @@
+%h2.left Irmingard
 %ul.navigation-entries
   -# %li.navigation-entry
   -#   Home

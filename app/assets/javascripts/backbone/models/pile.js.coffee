@@ -18,5 +18,18 @@ IG.Models.Pile = Backbone.RelationalModel.extend
       includeInJSON: '_id'
   ]
 
+  suitSymbol: ->
+    switch @get('suit')
+      when 'diamonds'
+        '♦'
+      when 'hearts'
+        '♥'
+      when 'spades'
+        '♠'
+      when 'clubs'
+        '♣'
+      else
+        null
+
   lastCard: ->
     @get('cards').last()

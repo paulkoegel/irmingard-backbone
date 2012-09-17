@@ -1,10 +1,9 @@
 IG.setupGame = ->
 
   IG.piles = new IG.Collections.Piles()
-  _.times 2, (index) ->
-    suits = ['diamonds', 'spades', 'hearts', 'clubs']
-    _.each suits, (suit) ->
-        IG.piles.add new IG.Models.Pile suit: suit
+  suits = ['diamonds', 'diamonds', 'spades', 'spades', 'hearts', 'hearts', 'clubs', 'clubs']
+  _.each suits, (suit) ->
+    IG.piles.add new IG.Models.Pile suit: suit
 
   IG.stack =  new IG.Models.Stack(_id: 1)
   decks = ['a', 'b']

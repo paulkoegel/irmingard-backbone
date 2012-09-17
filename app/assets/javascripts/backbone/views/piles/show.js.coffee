@@ -2,12 +2,15 @@
 
 class IG.Views.PilesShow extends Backbone.Marionette.ItemView
   tagName: 'div'
-  className: 'm-pile'
   template: 'piles/show'
 
   initialize: ->
     _.bindAll @, 'render'
     @model.on 'add:cards', @render
+
+  render: ->
+    super()
+    $(@el).addClass "m-pile_#{@model.get('suit')}"
 
   lastCard: ->
     @model.get('cards').last()
@@ -15,7 +18,6 @@ class IG.Views.PilesShow extends Backbone.Marionette.ItemView
   serializeData: ->
     jsonData = @model.toJSON()
     if @lastCard()
-      jsonData.lastCard = @lastCard().short()
-    else
-      jsonData.lastCard = 'Wumbaa'
+      jsonData.lastCardValue = @lastCard().humanValue()
+    jsonData.suitSymbol = @model.suitSymbol()
     jsonData
