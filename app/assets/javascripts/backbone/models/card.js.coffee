@@ -78,3 +78,16 @@ IG.Models.Card = Backbone.RelationalModel.extend
 
   moveTo: (newColumn) ->
     newColumn.get('cards').add @
+
+  isDiscardableTo: (pilesCollection) ->
+    piles = pilesCollection.pilesFor(@)
+    cardValue = @.get('value')
+    returnValue = false
+    _.each piles, (pile) ->
+      pileCards = pile.get('cards')
+      if pileCards.length
+        if pile.lastCard().get('value') == cardValue - 1
+          returnValue = pile
+      else if pileCards.length == 0 and cardValue == 1
+        returnValue = pile
+    return returnValue

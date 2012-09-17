@@ -22,6 +22,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     'dragleave': 'handleDragLeave'
     'dragend':   'handleDragEnd'
     'drop':      'handleDrop'
+    'dblclick':  'discardToPile'
 
   setDraggable: =>
     $(@el).attr 'draggable', "#{@model.get 'draggable'}"
@@ -85,3 +86,9 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
 
   isDropTarget: ->
     @model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
+
+  discardToPile: ->
+    return false unless @model.isLastCardInColumn @model.get('column')
+    targetPile = @model.isDiscardableTo IG.piles
+    if targetPile
+      targetPile.get('cards').add @model
