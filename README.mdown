@@ -13,9 +13,9 @@ Technology
 ----------
 Irmingard runs on Ruby on Rails 3.2. It uses Faye and AJAX to synchronize game states between players.
 
-Etymology
----------
-Irmingard is the name of the aunt of an acquaintance of mine who introduced me to the game. Credit where credit is due, so the whole game's named after her. There must be other names for this game but I've never seen it anywhere else.
+Why "Irmingard"?
+----------------
+All I can say is that it's named after a person.
 
 
 Objects
