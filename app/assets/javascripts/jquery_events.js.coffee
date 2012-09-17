@@ -13,9 +13,8 @@ $ ->
   $('.m-card_placeholder').on 'dragenter', (event) ->
     console.log 'dragEnter on placholder!!'
     if IG.currentlyDraggedCard.humanValue() == 'king'
-      console.log 'kings welcome!'
       $(@).addClass('is-drop-hovered')
-  
+
   $('.m-card_placeholder').on 'dragleave', (event) ->
     $(@).removeClass 'is-drop-hovered'
 
@@ -28,10 +27,8 @@ $ ->
     event.stopPropagation()
     event.preventDefault()
     return unless IG.currentlyDraggedCard.humanValue() == 'king'
-    console.log 'DROPPED from da jquery events'
     columnIndex = $(@).data('column-index')
     column = IG.columns.at(columnIndex)
-    console.log column.get('_id')
     if IG.currentlyDraggedCard.isLastCardInColumn(IG.currentlyDraggedCard.get('column'))
       IG.currentlyDraggedCard.moveTo column
     else

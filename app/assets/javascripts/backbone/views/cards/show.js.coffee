@@ -41,8 +41,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     $(@el).addClass 'low-opacity'
 
   handleDragEnter: (event) ->
-    console.log "handleDragEnter: #{@isDropTarget()}"
-    console.log $(event.target)
     return false unless @isDropTarget() #@model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
     @getDragTarget($ event.target).addClass 'is-drop-hovered'
 
