@@ -7,3 +7,5 @@
     Profile
   %li.navigation-entry
     Logout
+  %li#serve-new-cards
+    %a{href: '#'} Hit me!
