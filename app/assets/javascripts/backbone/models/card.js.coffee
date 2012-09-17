@@ -70,14 +70,9 @@ class IG.Models.Card extends Backbone.RelationalModel
 
   isLastCardInColumn: (column) ->
     columnCardsCollection = column.get 'cards'
-    x = (columnCardsCollection.indexOf(@) == columnCardsCollection.length-1)
-    console.log "#{x}, #{columnCardsCollection.indexOf(@)} of #{columnCardsCollection.length-1}"
-    x
+    columnCardsCollection.indexOf(@) == columnCardsCollection.length-1
 
   moveTo: (newColumn) ->
     oldColumn = @get('column')
-    console.log 'starting to move'
     oldColumn.get('cards').remove @
-    console.log 'done removing'
     newColumn.get('cards').add @
-    console.log 'done adding'

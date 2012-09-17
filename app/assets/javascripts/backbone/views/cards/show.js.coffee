@@ -10,13 +10,8 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     @model.on 'change:open change:draggable', @render
     @model.on 'change:draggable', @setDraggable
     @setDraggable()
-    #$(@el).attr 'draggable', "#{@model.get 'draggable'}"
-
-  setDraggable: =>
-    $(@el).attr 'draggable', "#{@model.get 'draggable'}"
 
   render: ->
-    console.log "rendering #{@model.humanReadableShort()}"
     super()
 
   events:
@@ -27,6 +22,9 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     'dragleave': 'handleDragLeave'
     'dragend':   'handleDragEnd'
     'drop':      'handleDrop'
+
+  setDraggable: =>
+    $(@el).attr 'draggable', "#{@model.get 'draggable'}"
 
   getDragTarget: ($dragEventTarget) ->
     if $dragEventTarget.hasClass('m-card')
@@ -40,7 +38,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   handleDragStart: (event) ->
     return false unless @model.get 'draggable'
     IG.currentlyDraggedCard = @model
-    console.log 'started dragging'
     $(@el).addClass 'low-opacity'
 
   handleDragEnter: (event) ->
@@ -63,9 +60,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     event.stopPropagation()
     event.preventDefault()
     return unless @model.isDropTargetFor(IG.currentlyDraggedCard)
-    console.log 'DROPPED'
-    # TODO: breaks in Card.draggable(): TypeError: this.get("column") is null
-    # columnCardsCollection = this.get('column').get('cards');
     IG.currentlyDraggedCard.moveTo @model.get('column')
     @getDragTarget($ event.target).removeClass 'drop-hovered'
     IG.currentlyDraggedCard = undefined
@@ -79,5 +73,4 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     jsonData = @model.toJSON()
     jsonData.humanReadableShort = @model.humanReadableShort()
     jsonData.imagePath = @model.imagePath()
-    #jsonData.draggable = @model.draggable()
     jsonData
