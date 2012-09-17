@@ -1,10 +1,21 @@
 'use strict'
 
 class IG.Views.PilesShow extends Backbone.Marionette.ItemView
-  tagName: 'ul'
+  tagName: 'div'
   className: 'm-pile'
   template: 'piles/show'
 
   initialize: ->
-    @collection = @model.get('cards')
-    @itemView = IG.Views.CardsShow
+    _.bindAll @, 'render'
+    @model.on 'add:cards', @render
+
+  lastCard: ->
+    @model.get('cards').last()
+
+  serializeData: ->
+    jsonData = @model.toJSON()
+    if @lastCard()
+      jsonData.lastCard = @lastCard().short()
+    else
+      jsonData.lastCard = 'Wumbaa'
+    jsonData
