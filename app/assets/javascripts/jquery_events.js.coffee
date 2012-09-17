@@ -8,6 +8,8 @@ $ ->
       cardToAdd.set {'open': true, 'draggable': true}, silent: true
       column.get('cards').add cardToAdd
 
+# - START super redundant code (copied from CardsShow) - - -
+
   $('.m-card_placeholder').on 'dragenter', (event) ->
     console.log 'dragEnter on placholder!!'
     if IG.currentlyDraggedCard.humanValue() == 'king'
@@ -39,3 +41,5 @@ $ ->
         card.moveTo column
     $(@).removeClass 'is-drop-hovered'
     IG.currentlyDraggedCard = undefined
+
+# - END super redundant code (copied from CardsShow) - - -
