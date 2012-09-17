@@ -41,3 +41,4 @@ IG.setupGame = ->
       column.get('cards').add cardToAdd, silent: true
 
   IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.columns)
+  IG.appLayout.piles.show new IG.Views.PilesCollection(collection: IG.piles)

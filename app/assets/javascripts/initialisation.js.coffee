@@ -25,6 +25,7 @@ class IG.AppLayout extends Backbone.Marionette.Layout
   el: 'body'
   regions:
     header:  '#l-header-container'
+    piles:   '#l-piles-container'
     content: '#l-content-container'
 
 IG.addInitializer (option) ->
