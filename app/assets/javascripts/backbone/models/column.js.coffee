@@ -46,3 +46,8 @@ class IG.Models.Column extends Backbone.RelationalModel
     cards = @get('cards')
     # minus to start from the end of the array, +1 since -1 and not 0 is the first index when starting at the end of the array
     cards.toArray().slice -(@orderedUpToIndex()+1)
+
+  cardsBelow: (card) ->
+    cards = @get('cards')
+    startIndex = cards.indexOf(card)
+    cards.toArray()[startIndex+1 .. cards.length]
