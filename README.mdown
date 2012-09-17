@@ -46,3 +46,18 @@ The usual pawns of this game.
 Jasmine Javascript Specs
 ========================
 $ guard-jasmine spec
+
+
+Callback Flow
+=============
+
+Problems
+--------
+
++ Can't set a card's draggability directly in its render method because on rendering the card's Column hasn't been updated yet by Backbone Relational
+    Cards Collection: 'add' callback, card's column is still: 4
+    CardsShow: rendering ♥queen with column still set to: 4
+    Column Model.handleAdd callback: only now has the card's column been updated to the new one: 0
+
+  The card first gets added to the Card Collection Backbone Relational uses behind the scene. This add automatically triggers Marionette's render on the card - unfortunately, Backbone Relational hasn't updated the card's column value then.
+  One way out of this could be to rerender the Card in the Column's handleAdd callback (con: double rendering). A better idea might be to leave everything as it is and only update the card's draggability in Column.handleAdd. Then simply bind the CardView to changes on draggability and set the HTML-attribute accordingly.

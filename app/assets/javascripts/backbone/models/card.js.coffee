@@ -1,5 +1,6 @@
 'use strict'
 
+# do NOT use class .. extends for RelationalModels, cf. https://github.com/PaulUithol/Backbone-relational#known-problems-and-solutions
 IG.Models.Card = Backbone.RelationalModel.extend
   idAttribute: '_id'
   urlRoot: '/cards'
@@ -76,6 +77,4 @@ IG.Models.Card = Backbone.RelationalModel.extend
     columnCardsCollection.indexOf(@) == columnCardsCollection.length-1
 
   moveTo: (newColumn) ->
-    oldColumn = @get('column')
-    oldColumn.get('cards').remove @
     newColumn.get('cards').add @
