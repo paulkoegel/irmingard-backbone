@@ -1,11 +1,11 @@
 %ul.navigation-entries
-  %li.navigation-entry
-    Home
-  %li.navigation-entry
-    Save Game
-  %li.navigation-entry
-    Profile
-  %li.navigation-entry
-    Logout
+  -# %li.navigation-entry
+  -#   Home
+  -# %li.navigation-entry
+  -#   Save Game
+  -# %li.navigation-entry
+  -#   Profile
+  -# %li.navigation-entry
+  -#   Logout
   %li#serve-new-cards
     %a{href: '#'} Hit me!
