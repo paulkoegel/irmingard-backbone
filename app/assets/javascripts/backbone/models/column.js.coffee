@@ -1,6 +1,7 @@
 'use strict'
 
-class IG.Models.Column extends Backbone.RelationalModel
+# can't use 'class .. extends' here since it breaks Backbone relational's reverseRelation, cf. https://github.com/PaulUithol/Backbone-relational#known-problems-and-solutions
+IG.Models.Column = Backbone.RelationalModel.extend
   idAttribute: '_id'
   urlRoot: '/columns'
 

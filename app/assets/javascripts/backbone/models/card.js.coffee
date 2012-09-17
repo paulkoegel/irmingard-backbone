@@ -1,6 +1,6 @@
 'use strict'
 
-class IG.Models.Card extends Backbone.RelationalModel
+IG.Models.Card = Backbone.RelationalModel.extend
   idAttribute: '_id'
   urlRoot: '/cards'
   defaults:

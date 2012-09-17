@@ -1,6 +1,6 @@
 'use strict'
 
-class IG.Models.Stack extends Backbone.RelationalModel
+IG.Models.Stack = Backbone.RelationalModel.extend
   idAttribute: '_id'
   urlRoot: '/stacks'
 
