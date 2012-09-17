@@ -1,16 +1,13 @@
 $ ->
   $('#serve-new-cards').click ->
-    console.log 'serve'
     IG.columns.each (column) ->
       cardToAdd = IG.stack.get('cards').pop(silent: true)
-      console.log cardToAdd.humanReadableShort()
       cardToAdd.set {'open': true, 'draggable': true}, silent: true
       column.get('cards').add cardToAdd
 
 # - START super redundant code (copied from CardsShow) - - -
 
   $('.m-card_placeholder').on 'dragenter', (event) ->
-    console.log 'dragEnter on placholder!!'
     if IG.currentlyDraggedCard.humanValue() == 'king'
       $(@).addClass('is-drop-hovered')
 
