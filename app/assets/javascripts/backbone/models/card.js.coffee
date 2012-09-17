@@ -59,6 +59,9 @@ class IG.Models.Card extends Backbone.RelationalModel
   humanReadableShort: ->
     "#{@suitSymbol()}#{@humanValue()}"
 
+  short: ->
+    @humanReadableShort()
+
   imagePath: ->
     "/assets/#{@humanReadable()}.gif"
 
