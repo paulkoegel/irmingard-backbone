@@ -1,4 +1,5 @@
-.l-page-container
-  .l-header-container
-  .l-content-container
-  .l-footer-container
+#l-page-container
+  #l-header-container
+  #l-piles-container
+  #l-content-container
+  #l-footer-container

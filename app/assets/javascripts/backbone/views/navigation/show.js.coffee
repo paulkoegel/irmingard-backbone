@@ -1,8 +1,8 @@
 'use strict'
 
-class IG.Views.Navigation extends Backbone.Marionette.ItemView
+class IG.Views.NavigationShow extends Backbone.Marionette.ItemView
   tagName: 'nav'
-  className: 'l-navigation'
+  id: 'l-navigation'
 
   initialize: ->
     _.bindAll @, 'render'
