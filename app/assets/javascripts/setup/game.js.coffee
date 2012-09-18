@@ -24,8 +24,7 @@ IG.setupGame = ->
           card.setSlug()
           IG.stack.get('cards').add card
 
-  # TODO: disabling shuffling for easier testing and development
-  # IG.stack.shuffle()
+  IG.stack.shuffle()
 
   IG.columns = new IG.Collections.Columns()
   _.each [1, 2, 3, 4, 5, 4, 3, 2, 1], (cardsPerColumn, columnIndex) ->
