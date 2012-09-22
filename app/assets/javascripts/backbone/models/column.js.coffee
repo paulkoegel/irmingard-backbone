@@ -31,6 +31,9 @@ IG.Models.Column = Backbone.RelationalModel.extend
     return unless cardsCollection.length
     lastCard = cardsCollection.last()
     @updateDraggability cardsCollection
+    # required despite call to updateDraggability
+    lastCard.set 'open', true, silent: true
+    lastCard.set 'draggable', true
 
   updateDraggability: (cardsCollection) ->
     cardsCollection.each (card) ->
