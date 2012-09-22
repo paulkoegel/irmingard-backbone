@@ -1,5 +1,6 @@
 $ ->
-  $('#serve-new-cards').click ->
+  $('#serve-new-cards').click (event) ->
+    event.preventDefault()
     IG.columns.each (column) ->
       cardToAdd = IG.stack.get('cards').pop(silent: true)
       cardToAdd.set {'open': true, 'draggable': true}, silent: true
