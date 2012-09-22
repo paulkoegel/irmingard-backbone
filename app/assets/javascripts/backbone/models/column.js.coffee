@@ -26,16 +26,25 @@ IG.Models.Column = Backbone.RelationalModel.extend
     # do nothing if removed Card was last in Column
     return unless cardsCollection.length
     lastCard = cardsCollection.last()
+    # TODO: need to do more here
+    @updateDraggability cardsCollection
     lastCard.set 'open', true, silent: true
     lastCard.set 'draggable', true
 
   handleAdd: (movedCard, cardsCollection) ->
+    console.log "handling add to column #{@get('_id')}"
+    console.log "card added was: #{movedCard.short()}"
+    console.log cardsCollection.map (card) ->
+      card.short()
     # TODO refactor! this is rather inefficient
+    @updateDraggability cardsCollection
+
+  updateDraggability: (cardsCollection) ->
     cardsCollection.each (card) ->
       card.set('draggable', false)
     _.each @draggableCards(), (draggableCard) ->
-      unless draggableCard.get 'draggable'
-        draggableCard.set 'draggable', true
+      draggableCard.set 'draggable', true
+
 
   orderedUpToIndex: ->
     cards = @get('cards').toArray().reverse()

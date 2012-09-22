@@ -1,12 +1,10 @@
 .m-card
-  display: block
   // Prevent the text contents of draggable elements from being selectable
   +user-select(none)
+  display: block
   width: $column-width - 10px
   height: 124px
   margin: -93px auto 0
-  &:nth-child(2)
-    margin-top: -124px
   > img
     width: $column-width - 10px
     padding: 5px
@@ -14,7 +12,6 @@
     background: #fcfcfc
     +box-shadow(rgba(#777, 0.75) 0 0 2px)
     +border-radius(10px)
-
   &[draggable='true']
     cursor: move
     &:hover
@@ -23,6 +20,11 @@
   &.is-drop-hovered
     > img
       +single-box-shadow(orange, 0, 0, 3px, 2px)
+
+.m-column
+  .m-card
+    &:nth-child(2)
+      margin-top: -124px
 
 .m-card_placeholder
   margin: 0 auto
@@ -33,3 +35,17 @@
   z-index: -1
   &.is-drop-hovered
     +single-box-shadow(orange, 0, 0, 3px, 2px)
+
+
+.m-pile
+  .m-card
+    //width: 70px
+    position: absolute
+    bottom: -88px
+    left: 3px
+    margin: 0 auto
+    > img
+      //width: 65px
+      //height: 87px
+      display: block
+      margin: 0 auto

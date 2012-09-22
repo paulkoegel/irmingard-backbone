@@ -1,14 +1,23 @@
 #piles-wrapper
   +pie-clearfix
-  margin-left: 130px
-  line-height: 62px
+  margin: 0 auto 20px
+  width: 968px
+  height: 40px
 
 .m-pile
+  padding: 0
   float: left
-  margin-right: 20px
-  width: 62px
+  margin: 0 10px 0 0
+  width: $column-width + 5
+  height: 40px
+  position: relative
+  overflow: hidden
   &:nth-child(2n+2)
-    margin-right: 30px
+    margin-right: 20px
+
+.m-pile--label
+  margin-left: $padding
+  +opacity(0.4)
 
 .m-pile_diamonds, .m-pile_hearts
   @extend .m-pile

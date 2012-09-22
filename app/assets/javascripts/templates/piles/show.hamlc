@@ -1,2 +1,1 @@
-= @suitSymbol
-= @lastCardValue
+.m-pile--label= @suitSymbol

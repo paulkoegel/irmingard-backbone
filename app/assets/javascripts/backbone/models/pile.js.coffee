@@ -19,6 +19,9 @@ IG.Models.Pile = Backbone.RelationalModel.extend
       includeInJSON: '_id'
   ]
 
+  initialize: ->
+    @on 'add:cards', @handleAdd
+
   suitSymbol: ->
     switch @get('suit')
       when 'diamonds'
@@ -34,3 +37,6 @@ IG.Models.Pile = Backbone.RelationalModel.extend
 
   lastCard: ->
     @get('cards').last()
+
+  handleAdd: (addedCard, cardsCollection) ->
+    # console.log "a card has been added to pile #{@.suitSymbol()} with id #{@_id}"

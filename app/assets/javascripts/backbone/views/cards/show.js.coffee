@@ -24,6 +24,14 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     'drop':      'handleDrop'
     'dblclick':  'discardToPile'
 
+  # custom function to put some additional meat on 'this' used in the CardsShow template, manually adding the output of certain functions that would otherwise not be accessible from the template (cf.: http://stackoverflow.com/a/10779124 and http://derickbailey.github.com/backbone.marionette/docs/backbone.marionette.html)
+  serializeData: ->
+    jsonData = @model.toJSON()
+    jsonData.humanReadableShort = @model.humanReadableShort()
+    jsonData.imagePath = @model.imagePath()
+    jsonData
+
+
   setDraggable: =>
     $(@el).attr 'draggable', "#{@model.get 'draggable'}"
 
@@ -62,7 +70,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     event.preventDefault()
     return unless @isDropTarget() #@model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
 
-    if IG.currentlyDraggedCard.isLastCardInColumn(IG.currentlyDraggedCard.get('column'))
+    if IG.currentlyDraggedCard.get('pile') or IG.currentlyDraggedCard.isLastCardInColumn(IG.currentlyDraggedCard.get('column'))
       IG.currentlyDraggedCard.moveTo @model.get('column')
     else
       cardsToMove = IG.currentlyDraggedCard.get('column').cardsBelow(IG.currentlyDraggedCard)
@@ -73,16 +81,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     @getDragTarget($ @el).removeClass 'is-drop-hovered'
     IG.currentlyDraggedCard = undefined
 
-  # custom function to put some additional meat on 'this' used in the CardsShow template
-  # manually adding the output of certain functions that would otherwise
-  # not be accessible from the template
-  # cf.: http://stackoverflow.com/a/10779124 and
-  # http://derickbailey.github.com/backbone.marionette/docs/backbone.marionette.html
-  serializeData: ->
-    jsonData = @model.toJSON()
-    jsonData.humanReadableShort = @model.humanReadableShort()
-    jsonData.imagePath = @model.imagePath()
-    jsonData
 
   isDropTarget: ->
     @model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
@@ -91,4 +89,5 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     return false unless @model.isLastCardInColumn @model.get('column')
     targetPile = @model.isDiscardableTo IG.piles
     if targetPile
+      @model.get('column').get('cards').remove @model
       targetPile.get('cards').add @model

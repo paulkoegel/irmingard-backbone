@@ -4,6 +4,7 @@
 IG.Models.Card = Backbone.RelationalModel.extend
   idAttribute: '_id'
   urlRoot: '/cards'
+
   defaults:
     _id:       null
     deck:      null
@@ -77,7 +78,10 @@ IG.Models.Card = Backbone.RelationalModel.extend
     columnCardsCollection.indexOf(@) == columnCardsCollection.length-1
 
   moveTo: (newColumn) ->
+    if pile = @get('pile')
+      pile.get('cards').remove @
     newColumn.get('cards').add @
+
 
   isDiscardableTo: (pilesCollection) ->
     piles = pilesCollection.pilesFor(@)

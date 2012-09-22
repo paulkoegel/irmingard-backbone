@@ -1,8 +1,17 @@
 *
   +box-sizing(border-box)
 
+html
+  // http://stackoverflow.com/a/10538370
+  -ms-overflow-y: scroll
+  overflow-y: scroll
+  height: 101%
+  min-height: 100%
+  padding-bottom: 1px
+
 body
   background-color: $background-colour
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
 
 .low-opacity
   +opacity(0.4)
