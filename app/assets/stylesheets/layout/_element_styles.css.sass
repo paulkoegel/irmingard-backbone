@@ -1,3 +1,28 @@
+#l-game-container
+  +pie-clearfix
+  position: relative
+  min-height: 100%
+
 #l-page-container
   width: $page-container-width
   margin: 0 auto
+  position: relative
+  // leave space for footer
+  margin-bottom: 100px
+
+#l-content-container
+  +pie-clearfix
+  background-color: $background-colour
+  position: relative
+  z-index: 1
+
+#l-footer-container
+  padding: 7px $padding
+  border-top: 1px solid #bbb
+  color: #777
+  font-size: 13px
+  position: absolute
+  width: $page-container-width
+  left: 50%
+  margin-left: -1*round($page-container-width/2)
+  bottom: 20px
