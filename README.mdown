@@ -100,7 +100,7 @@ Dev notes
 
 Acknowledgements
 ----------------
-Big thanks to Jeremy Ashkenas for creating [CoffeeScript](http://coffeescript.org) &amp; [Backbone.js](http://backbonejs.org), and Derick Bailey for building [Backbone Marionette](https://github.com/marionettejs/backbone.marionette). And to [Bumi](http://railslove.com/bumi) for introducing me to Backbone in the first place - back in 2010 ;)
+Big thanks to Jeremy Ashkenas for creating [CoffeeScript](http://coffeescript.org) &amp; [Backbone.js](http://backbonejs.org), to Derick Bailey for building [Backbone Marionette](https://github.com/marionettejs/backbone.marionette), and to [Bumi](http://railslove.com/bumi) for introducing me to Backbone in the first place - back in 2010 ;)
 
 ### Graphics
 Thank you for providing the card images to the following authors:
