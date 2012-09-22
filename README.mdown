@@ -1,6 +1,6 @@
 IRMINGARD
 =========
-Irmingard is a single and multi-player patience card game. The goal of the game is to clear away all cards from the board to discard piles. You can play it by yourself or in cooperation with one or more friends on several computers over the internet.
+Irmingard is a patience card game. The goal of the game is to clear away all cards from the board to discard piles. At the moment it's single player only but I'd love to be able to play it simultaneously with my big sister.
 
 How to play
 -----------
@@ -11,7 +11,7 @@ When no more moves are left, new open cards are put at the bottom of each pile. 
 
 Technology
 ----------
-Irmingard runs on Ruby on Rails 3.2. It uses Faye and AJAX to synchronize game states between players.
+Irmingard runs on Ruby on Rails 3.2
 
 Why "Irmingard"?
 ----------------
