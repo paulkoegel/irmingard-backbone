@@ -40,6 +40,7 @@ Technologies
 
 Planned features
 ----------------
++ add some awesome end game animation or image (how about reusing [this](http://www.youtube.com/watch?v=1zNAkqZHauQ#t=00m18s)?)
 + write Jasmine specs
 + improve UI
 + save game state
