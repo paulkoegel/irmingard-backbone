@@ -2,49 +2,81 @@ IRMINGARD
 =========
 Irmingard is a patience card game. The goal of the game is to clear away all cards from the board to discard piles. At the moment it's single player only but I'd love to be able to play it simultaneously with my big sister.
 
+
+TL;DR Rules
+-----------
++ the aim is to sort all cards to their discard piles - except you have
+8 of those instead of 4
++ drag and drop cards onto other matching cards
++ double click on a card to discard it to a pile
++ press 'hit me' to get new cards
+
+
 How to play
 -----------
 Irmingard is played with two sets (104 cards in total) of four suits (♠, ♣, ♦, ♥) with card values from Ace, 2, 3, ... Queen, King - without Jokers. The goal of the game is to clear away all cards to discard piles, where cards are ordered by suit and ascending value (Aces first).
-The game starts with a board filled with cards in columns of 1, 2, 3, 4, 5, 4, 3, 2, and 1 cards. The only cards on the board whose face you can see are the ones at the bottom of a column, all cards above them are flipped and blocked. You can rearrange cards by putting cards of a lower value below cards of a different colour. Example: 7 of hearts can go below 8 of spades or 8 of clubs.
-At the beginning of the game, all cards that aren't on the board are in a stack, and all eight piles are empty. Once you have a flipped Ace it goes straight to one of the eight piles (2 sets of 4 suits, so we have 8 Aces in the game, each with a duplicate).
-When no more moves are left, new open cards are put at the bottom of each pile. This continues until you've cleared the entire board or have run out of moves.
+The game starts with a board filled with cards in columns of 1, 2, 3, 4, 5, 4, 3, 2, and 1 cards. The only cards on the board whose face you can see are the ones at the bottom of a column, all cards above them are flipped and blocked. You can rearrange cards by putting cards of a lower value below cards of a different colour. Example: 7 of hearts can go below an 8 of spades or an 8 of clubs.
+At the beginning of the game, all cards that aren't on the board are in a stack (which is not shown in this implementation of the game), and all eight piles are empty. Once you have a moveable Ace it can be discarded on one of the eight piles (2 sets of 4 suits, so we have 8 Aces in the game, each with a duplicate).
+When no more moves are left, new open cards can be put at the bottom of each pile by pressing the 'Hit me' butto in the top right. This continues until you've cleared the entire board or have run out of moves.
 
-Technology
-----------
-Irmingard runs on Ruby on Rails 3.2
++ when a column on the game board is empty only Kings can be dropped on them
++ the first card to discard on a pile must be an Ace
++ top cards from piles can be dragged back onto the board (comes in very handy in the late game, believe me)
+
+
+Technologies
+------------
++ HTML5 drag and drop API (I used this [HTML5 Rocks Tutorial](http://www.html5rocks.com/en/tutorials/dnd/basics))
++ [Backbone JS](http://backbonejs.org)
++ [CoffeeScript](http://coffeescript.org)
++ [Backbone Marionette](https://github.com/marionettejs/backbone.marionette)
++ [Backbone Relational](https://github.com/PaulUithol/Backbone-relational)
++ [HAML Coffee Templates](https://github.com/netzpirat/haml_coffee_assets)
++ [Gon gem](https://github.com/gazay/gon)
++ Rails 3.2.8
++ tests are in the making and will be written with Jasmine + [Jasminerice](https://github.com/bradphelan/jasminerice) + [Guard Jasmine](https://github.com/netzpirat/guard-jasmine) (Phantom JS)
+
+
+Planned features
+----------------
++ write Jasmine specs
++ improve UI
++ save game state
++ collaboration mode with server-side validation of moves and real time move propagation handled by web sockets (using [FAYE](http://faye.jcoglan.com), most likely)
++ IE7 support =)
+  no really - [this is what it currently looks like in IE7]() and you're even able to drag and drop stuff.
+
+
 
 Why "Irmingard"?
 ----------------
-All I can say is that it's named after a person.
+It's named after a person.
 
 
 Objects
-=======
+-------
 
-Stack
------
+### Stack
 The stack of shuffled and cards in your hand, you can only see their back.
 
-Pile
-----
+### Pile
 Discard piles where all the cards land in the following order: ace, 2, 3, ..., queen, king
 There's 8 of them, two per suit.
 
-Column
-------
+### Column
 There are 9 columns on the board. at the start of the game they're filled with 1, 2, 3, 4, 5, 4, 3, 2, and 1 cards (left to right). Only the last card of each column is open and movable.
 
-Card
-----
-The usual pawns of this game.
+### Card
 104 in total:
  + 2 sets of cards
    - in 4 suits (hearts, diamonds, spades, clubs)
      * with values from 1 (ace), 2, 3, ... 10, 11 (jack), 12 (queen), 13 (king)
 
 
-Jasmine Javascript Specs
-========================
+Dev notes
+---------
+
+### Jasmine Javascript Specs
 + in your browser:
   `rails s`
   open localhost:3000/jasmine
@@ -53,12 +85,9 @@ Jasmine Javascript Specs
   `guard-jasmine spec`
 
 
-Callback Flow
-=============
+### Problems
 
-Problems
---------
-
+#### Callback Flow
 + Can't set a card's draggability directly in its render method because on rendering the card's Column hasn't been updated yet by Backbone Relational
     Cards Collection: 'add' callback, card's column is still: 4
     CardsShow: rendering ♥queen with column still set to: 4
