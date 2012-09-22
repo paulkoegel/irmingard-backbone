@@ -7,7 +7,7 @@ TL;DR Rules
 -----------
 + the aim is to sort all cards to their discard piles (you have
 8 of those instead of Solitaire's 4)
-+ drag and drop cards onto other matching cards (draggable cards are marked green on hover, drop target are marked yellow on hover when dragging)
++ drag and drop cards onto other matching cards (draggable cards are marked green on hover, drop targets are marked yellow on hover when dragging)
 + double click on a card to discard it to a pile
 + press 'hit me' to get new cards
 
