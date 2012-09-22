@@ -18,7 +18,5 @@ IG.Models.Stack = Backbone.RelationalModel.extend
       includeInJSON: '_id'
   ]
 
-  initialize: (attributes) ->
-
   shuffle: ->
     @get('cards').reset _.shuffle(@get('cards').models)

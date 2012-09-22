@@ -15,4 +15,6 @@
   -# %li.navigation-entry
   -#   Logout
   %li#serve-new-cards
-    %a{href: '#'} Hit me!
+    %span Hit me!
+    %span.stack-counter
+      = "(#{IG.stack.get('cards').length})"
