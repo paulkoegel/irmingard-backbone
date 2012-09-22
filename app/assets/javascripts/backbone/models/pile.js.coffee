@@ -4,6 +4,7 @@
 IG.Models.Pile = Backbone.RelationalModel.extend
   idAttribute: '_id'
   urlRoot: '/piles'
+
   defaults:
     _id:  null
     suit: null
@@ -14,7 +15,7 @@ IG.Models.Pile = Backbone.RelationalModel.extend
     relatedModel: 'IG.Models.Card'
     collectionType: 'IG.Collections.Cards'
     reverseRelation:
-      key: 'column'
+      key: 'pile'
       includeInJSON: '_id'
   ]
 
