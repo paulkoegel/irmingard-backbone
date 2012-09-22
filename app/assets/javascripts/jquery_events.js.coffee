@@ -1,10 +1,12 @@
 $ ->
   $('#serve-new-cards').click (event) ->
     event.preventDefault()
-    IG.columns.each (column) ->
-      cardToAdd = IG.stack.get('cards').pop(silent: true)
-      cardToAdd.set {'open': true, 'draggable': true}, silent: true
-      column.get('cards').add cardToAdd
+    if IG.stack.get('cards').length
+      IG.columns.each (column) ->
+        if IG.stack.get('cards').length
+          cardToAdd = IG.stack.get('cards').pop(silent: true)
+          cardToAdd.set {'open': true, 'draggable': true}, silent: true
+          column.get('cards').add cardToAdd
     $('.stack-counter').text "(#{IG.stack.get('cards').length})"
 
 # - START super redundant code (copied from CardsShow) - - -
