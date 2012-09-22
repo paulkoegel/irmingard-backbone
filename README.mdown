@@ -11,6 +11,7 @@ TL;DR Rules
 + double click on a card to discard it to a pile
 + press 'hit me' to get new cards
 
+![screenshot of the game board](https://raw.github.com/paulwittmann/irmingard-backbone/master/doc/irmingard_explained.png)
 
 How to play
 -----------
@@ -44,7 +45,7 @@ Planned features
 + save game state
 + collaboration mode with server-side validation of moves and real time move propagation handled by web sockets (using [FAYE](http://faye.jcoglan.com), most likely)
 + IE7 support =)
-  no really - [this is what it currently looks like in IE7]() and you're even able to drag and drop stuff.
+  no really - [this is what it currently looks like in IE7](https://raw.github.com/paulwittmann/irmingard-backbone/master/doc/irmingard_in_ie7.png) and you're even able to drag and drop stuff.
 
 
 
