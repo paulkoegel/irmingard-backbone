@@ -22,7 +22,7 @@ IG.vent = new Backbone.Marionette.EventAggregator()
 
 class IG.AppLayout extends Backbone.Marionette.Layout
   template: 'layouts/application'
-  el: 'body'
+  el: '#l-game-container'
   regions:
     header:  '#l-header-container'
     piles:   '#l-piles-container'
