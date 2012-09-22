@@ -1,4 +1,10 @@
-%h2.left Irmingard
+.left
+  %h2.left
+    %a{href: 'https://github.com/paulwittmann/irmingard-backbone', target: '_blank'}
+      Irmingard
+  %a.instructions{href: 'https://github.com/paulwittmann/irmingard-backbone/blob/master/README.mdown', target: '_blank'}
+    How to play
+
 %ul.navigation-entries
   -# %li.navigation-entry
   -#   Home
