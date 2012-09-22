@@ -45,7 +45,12 @@ The usual pawns of this game.
 
 Jasmine Javascript Specs
 ========================
-$ guard-jasmine spec
++ in your browser:
+  `rails s`
+  open localhost:3000/jasmine
+
++ headless:
+  `guard-jasmine spec`
 
 
 Callback Flow
