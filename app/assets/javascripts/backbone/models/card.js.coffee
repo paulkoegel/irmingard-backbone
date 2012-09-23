@@ -17,6 +17,7 @@ IG.Models.Card = Backbone.RelationalModel.extend
     open:      false
     draggable: false
     backImagePath: '/assets/back.gif'
+    imagePath: null
 
   initialize: (attributes) ->
 
@@ -42,6 +43,9 @@ IG.Models.Card = Backbone.RelationalModel.extend
   setSlug: ->
     @set 'slug', "#{@get 'suit'}_#{@humanValue()}_#{@get 'deck'}"
 
+  setImageAssetPath: (imageNamesHash) ->
+    @set 'imagePath', imageNamesHash[@humanReadable()]
+
   suitSymbol: ->
     switch @get('suit')
       when 'diamonds'
@@ -63,9 +67,6 @@ IG.Models.Card = Backbone.RelationalModel.extend
 
   short: ->
     @humanReadableShort()
-
-  imagePath: ->
-    "/assets/#{@humanReadable()}.gif"
 
   isDropTargetFor: (card) ->
     if @get('value') - 1 == card.get('value') and @colour() != card.colour()

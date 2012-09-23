@@ -22,6 +22,7 @@ IG.setupGame = ->
             stack: true
             position: IG.stack.get('cards').length
           card.setSlug()
+          card.setImageAssetPath(gon.image_paths)
           IG.stack.get('cards').add card
 
   IG.stack.shuffle()
