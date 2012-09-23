@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'settingslogic'
 gem 'rails-backbone'
+gem 'gon'
 
 # Gems used only for assets and not required
 # in production environments by default.
