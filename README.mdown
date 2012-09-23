@@ -5,9 +5,9 @@ Irmingard is a patience card game. The goal of the game is to clear away all car
 
 TL;DR Rules
 -----------
-+ the aim is to sort all cards to their discard piles - except you have
-8 of those instead of 4
-+ drag and drop cards onto other matching cards
++ the aim is to sort all cards to their discard piles (you have
+8 of those instead of Solitaire's 4)
++ drag and drop cards onto other matching cards (draggable cards are marked green on hover, drop targets are marked yellow on hover while dragging another card)
 + double click on a card to discard it to a pile
 + press 'hit me' to get new cards
 
