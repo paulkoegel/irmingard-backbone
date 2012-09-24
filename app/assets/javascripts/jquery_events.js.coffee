@@ -21,20 +21,21 @@ $ ->
           column.get('cards').add cardToAdd
     $('.stack-counter').text "(#{IG.stack.get('cards').length})"
 
+  # DROPPING ON PLACEHOLDERS
   # - START super redundant code (copied from CardsShow) - - -
-  $('.m-card_placeholder').on 'dragenter', (event) ->
+  $('#l-game-container').on 'dragenter', '.m-column .m-card_placeholder', (event) ->
     if IG.currentlyDraggedCard.humanValue() == 'king'
       $(@).addClass('is-drop-hovered')
 
-  $('.m-card_placeholder').on 'dragleave', (event) ->
+  $('#l-game-container').on 'dragleave', '.m-column .m-card_placeholder', (event) ->
     $(@).removeClass 'is-drop-hovered'
 
-  $('.m-card_placeholder').on 'dragover', (event) ->
+  $('#l-game-container').on 'dragover', '.m-column .m-card_placeholder', (event) ->
     # the following two lines are mandatory for the 'drop' event to fire
     event.preventDefault()
     return false
 
-  $('.m-card_placeholder').on 'drop', (event) ->
+  $('#l-game-container').on 'drop', '.m-column .m-card_placeholder', (event) ->
     event.stopPropagation()
     event.preventDefault()
     return unless IG.currentlyDraggedCard.humanValue() == 'king'
