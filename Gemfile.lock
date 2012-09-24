@@ -29,6 +29,9 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.2)
+    animation (0.1.alpha.3)
+      compass (>= 0.12.0)
+      sass (>= 3.2.0.alpha.95)
     ansi (1.4.3)
     arel (3.0.2)
     builder (3.0.3)
@@ -235,6 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  animation (~> 0.1.alpha.3)
   capybara
   coffee-rails (~> 3.2.2)
   compass-normalize

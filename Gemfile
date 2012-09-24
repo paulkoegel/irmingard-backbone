@@ -17,6 +17,7 @@ group :assets do
   gem 'uglifier', '>= 1.2.6'
   gem 'compass-rails'
   gem 'compass-normalize'
+  gem 'animation', '~> 0.1.alpha.3'
   gem 'haml_coffee_assets'
   gem 'execjs'
 end
