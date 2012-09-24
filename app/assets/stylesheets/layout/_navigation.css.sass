@@ -24,6 +24,7 @@
     margin-right: 0
 
 #serve-new-cards
+  border: 1px solid shade(#2750a3, 10)
   +user-select(none)
   cursor: pointer
   background: #2750a3
@@ -32,8 +33,13 @@
   color: #fcfcfc
   +text-shadow(0 0 2px #333)
   padding: 5px 10px
+  +transition-property(background-color)
+  +transition-duration(0.2s)
+  +transition-timing-function(linear)
   &:hover
     background: tint(#2750a3, 10)
+  &[disabled]
+    background: #444
 .stack-counter
   font-size: 11px
   color: #aaa

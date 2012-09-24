@@ -14,7 +14,8 @@
   -#   Profile
   -# %li.navigation-entry
   -#   Logout
-  %li#serve-new-cards
-    %span Hit me!
-    %span.stack-counter
-      = "(#{IG.stack.get('cards').length})"
+  %li
+    %button#serve-new-cards
+      %span Hit me!
+      %span.stack-counter
+        = "(#{IG.stack.get('cards').length})"

@@ -1,6 +1,10 @@
 $ ->
   $('#serve-new-cards').click (event) ->
     event.preventDefault()
+    $button = $(event.currentTarget).attr('disabled', 'disabled')
+    setTimeout ->
+      $button.removeAttr('disabled')
+    , 1000
     if IG.stack.get('cards').length
       IG.columns.each (column) ->
         if IG.stack.get('cards').length
