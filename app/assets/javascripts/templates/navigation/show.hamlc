@@ -4,3 +4,7 @@
 %li.l-navigation--item
   %a{onclick:'if(confirm("Really start a new game?")) window.location = "/";'}
     New Game
+.l-navigation--splitter
+%li.l-navigation--item
+  %a.serve-new-cards
+    + Serve new Cards

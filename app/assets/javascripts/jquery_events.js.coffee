@@ -1,5 +1,5 @@
 $ ->
-  $('#serve-new-cards').click (event) ->
+  $('.serve-new-cards').click (event) ->
     event.preventDefault()
     IG.serveNewCards()
 
@@ -11,7 +11,7 @@ $ ->
       console.log 'pressed enter'
 
   IG.serveNewCards = () ->
-    $button = $('#serve-new-cards').attr('disabled', 'disabled')
+    $button = $('button.serve-new-cards').attr('disabled', 'disabled')
     setTimeout ->
       $button.removeAttr('disabled')
     , 1000
