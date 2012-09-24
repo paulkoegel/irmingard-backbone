@@ -16,7 +16,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     # This doesn't fix the problem for Piles, though. To show cards there, we're simply using the power of CSS. .off-the-board only sets top to 700px for cards nested within .m-column
     if !@model.get('column')? && !@model.get('pile')
       $(@el).addClass('off-the-board')
-    console.log "#{@model.short()}: column: #{@model.get('column').get('_id') if @model.get('column')} pile: #{@model.get('column').get('_id') if @model.get('pile')}"
 
   events:
     # the implicit selector is li.m-card' and afaik there's no way to listen only to events on li.m-card[draggable="true"]
