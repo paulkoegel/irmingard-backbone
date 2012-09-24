@@ -3,12 +3,10 @@ $ ->
     event.preventDefault()
     IG.serveNewCards()
 
-  #document.onkeydown=function(e){ if(e.which == 17) isCtrl=true; if(e.which == 83 && isCtrl == true) { //run code for CTRL+S -- ie, save! return false; } if(e.which == 79 && isCtrl == true) { //run code for CTRL+O -- ie, open! return false; } if(e.which == 84 && isCtrl == true) { //run code for CTRL+T -- ie, new tab! return false; } }
-
+  # serve new cards on pressing 'Enter'
   document.onkeydown = (event) ->
     if event.which == 13
       IG.serveNewCards()
-      console.log 'pressed enter'
 
   IG.serveNewCards = () ->
     $button = $('button.serve-new-cards').attr('disabled', 'disabled')

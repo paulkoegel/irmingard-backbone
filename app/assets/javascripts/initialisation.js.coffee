@@ -19,7 +19,7 @@ $ ->
   document.addEventListener('animationstart', insertListener, false) # standard + Firefox
   document.addEventListener('webkitAnimationStart', insertListener, false) # Chrome + Safari
   document.addEventListener('MSAnimationStart', insertListener, false) # IE
-  
+
   IG.start()
 
 IG.Models      = {}
