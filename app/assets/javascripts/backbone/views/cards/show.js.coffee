@@ -13,6 +13,9 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
 
   render: ->
     super()
+    # A card added via 'Hit me!' doesn't have a column set for Backbone Relational on render - that's how we distinguish them from the last card of a column, which also gets rerendered (to update draggability) when a new card is added to a column. We don't want to run an animation when a card is added to a column via drag and drop.
+    if !@model.get('column')?
+      $(@el).css 'top', '700px'
 
   events:
     # the implicit selector is li.m-card' and afaik there's no way to listen only to events on li.m-card[draggable="true"]
