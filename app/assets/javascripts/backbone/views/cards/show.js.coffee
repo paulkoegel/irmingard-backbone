@@ -38,15 +38,6 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   setDraggable: =>
     $(@el).attr 'draggable', "#{@model.get 'draggable'}"
 
-  getDragTarget: ($dragEventTarget) ->
-    if $dragEventTarget.hasClass('m-card')
-      $dragTarget = $dragEventTarget
-    else
-      $parent = $dragEventTarget.parent('.m-card')
-      if $parent.length
-        $dragTarget = $parent
-    $dragTarget
-
   handleDragStart: (event) ->
     return false unless @model.get 'draggable'
     IG.currentlyDraggedCard = @model
@@ -54,7 +45,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
 
   handleDragEnter: (event) ->
     return false unless @isDropTarget() #@model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
-    @getDragTarget($ @el).addClass 'is-drop-hovered'
+    $(event.currentTarget).addClass 'is-drop-hovered'
 
   handleDragOver: (event) ->
     # the following two lines are mandatory for the 'drop' event to fire
@@ -62,7 +53,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     return false
 
   handleDragLeave: (event) ->
-    @getDragTarget($ @el).removeClass 'is-drop-hovered'
+    $(event.currentTarget).removeClass 'is-drop-hovered'
 
   handleDragEnd: (event) ->
     $(@el).removeClass 'low-opacity'
@@ -81,7 +72,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
       _.each cardsToMove, (card) =>
         card.moveTo @model.get('column')
 
-    @getDragTarget($ @el).removeClass 'is-drop-hovered'
+    $(event.currentTarget).removeClass 'is-drop-hovered'
     IG.currentlyDraggedCard = undefined
 
 
