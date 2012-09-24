@@ -13,8 +13,7 @@ $ ->
           column.get('cards').add cardToAdd
     $('.stack-counter').text "(#{IG.stack.get('cards').length})"
 
-# - START super redundant code (copied from CardsShow) - - -
-
+  # - START super redundant code (copied from CardsShow) - - -
   $('.m-card_placeholder').on 'dragenter', (event) ->
     if IG.currentlyDraggedCard.humanValue() == 'king'
       $(@).addClass('is-drop-hovered')
@@ -42,5 +41,15 @@ $ ->
         card.moveTo column
     $(@).removeClass 'is-drop-hovered'
     IG.currentlyDraggedCard = undefined
+  # - END super redundant code (copied from CardsShow) - - -
 
-# - END super redundant code (copied from CardsShow) - - -
+
+  # hacky alternative to DOMNodeInserted, cf.: http://davidwalsh.name/detect-node-insertion
+  insertListener = (event) ->
+    if event.animationName == 'nodeInserted'
+      $(event.target).css('top', '0')
+
+  # insertListener() MUST be declared before these
+  document.addEventListener('animationstart', insertListener, false) # standard + Firefox
+  document.addEventListener('webkitAnimationStart', insertListener, false) # Chrome + Safari
+  document.addEventListener('MSAnimationStart', insertListener, false) # IE

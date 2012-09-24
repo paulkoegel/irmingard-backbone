@@ -1,6 +1,11 @@
 .m-card
   // Prevent the text contents of draggable elements from being selectable
   +user-select(none)
+  position: relative
+  +transition-property(top)
+  +transition-duration(0.5s)
+  +transition-timing-function(linear)
+  top: 700px
   display: block
   width: $column-width - 10px
   height: 124px
@@ -21,10 +26,21 @@
     > img
       +single-box-shadow(orange, 0, 0, 3px, 2px)
 
+
++keyframes(nodeInserted)
+  from
+    clip: rect(1px, auto, auto, auto)
+  to
+    clip: rect(0px, auto, auto, auto)
+
 .m-column
   .m-card
+    // abusing CSS3 animatinos to catch event of newly inserted DOM elements, cf.: http://davidwalsh.name/detect-node-insertion
+    +animation-duration(0.001s)
+    +animation-name(nodeInserted)
     &:nth-child(2)
       margin-top: -124px
+
 
 .m-card_placeholder
   margin: 0 auto
