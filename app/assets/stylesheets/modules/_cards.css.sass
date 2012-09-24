@@ -20,7 +20,7 @@
     cursor: move
     &:hover
       > img
-        +single-box-shadow(#3A8A5B, 0, 0, 3px, 2px)
+        +single-box-shadow(#3a8a5b, 0, 0, 3px, 2px)
   &.is-drop-hovered
     > img
       +single-box-shadow(orange, 0, 0, 3px, 2px)
@@ -37,16 +37,18 @@
     // abusing CSS3 animatinos to catch event of newly inserted DOM elements, cf.: http://davidwalsh.name/detect-node-insertion
     +animation-duration(0.001s)
     +animation-name(nodeInserted)
+    top: 0
     &:nth-child(2)
       margin-top: -124px
-
+    &.off-the-board
+      top: 700px
 
 .m-card_placeholder
   margin: 0 auto
   width: $column-width - 10px
   height: 124px
   background: shade($background-colour, 15)
-  +border-radius(10px)
+  +border-radius(15px)
   z-index: -1
   &.is-drop-hovered
     +single-box-shadow(orange, 0, 0, 3px, 2px)
@@ -54,13 +56,22 @@
 
 .m-pile
   .m-card
-    //width: 70px
+    width: 101px
     position: absolute
-    bottom: -88px
-    left: 3px
+    bottom: -84px
     margin: 0 auto
+    +box-shadow(0 0 0)
     > img
-      //width: 65px
-      //height: 87px
+      width: 101px
+      height: auto
       display: block
       margin: 0 auto
+      +box-shadow(0 0 0)
+      border: 1px solid rgba(#777, 0.3)
+      &:hover
+        border: 1px solid rgba(#3a8a5b, 0.5)
+        +single-box-shadow(transparent, 0, 0, 0, 0)
+
+  .m-card_placeholder
+    width: auto
+    background: rgba(shade($background-colour, 15), 0.4)

@@ -11,27 +11,13 @@ html
 
 body
   background-color: $background-colour
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+  font-family: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
   height: 100%
   background-image: image-url('pattern.png')
-
-#gradient-layer
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  +background-image(radial-gradient(20px 17px, rgba(gray, 0.05) 550px, rgba(gray, 0.2) 800px)) //rgba(gray, 0.8) 750px))
-  z-index: 10
-  pointer-events: none
 
 a
   color: #2750a3
   text-decoration: none
-
-h2
-  > a
-    color: black
 
 .low-opacity
   +opacity(0.4)

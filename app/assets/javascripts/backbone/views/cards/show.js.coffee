@@ -11,11 +11,12 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     @model.on 'change:draggable', @setDraggable
     @setDraggable()
 
-  render: ->
-    super()
+  onRender: ->
     # A card added via 'Hit me!' doesn't have a column set for Backbone Relational on render - that's how we distinguish them from the last card of a column, which also gets rerendered (to update draggability) when a new card is added to a column. We don't want to run an animation when a card is added to a column via drag and drop.
-    if !@model.get('column')?
-      $(@el).css 'top', '700px'
+    # This doesn't fix the problem for Piles, though. To show cards there, we're simply using the power of CSS. .off-the-board only sets top to 700px for cards nested within .m-column
+    if !@model.get('column')? && !@model.get('pile')
+      $(@el).addClass('off-the-board')
+    console.log "#{@model.short()}: column: #{@model.get('column').get('_id') if @model.get('column')} pile: #{@model.get('column').get('_id') if @model.get('pile')}"
 
   events:
     # the implicit selector is li.m-card' and afaik there's no way to listen only to events on li.m-card[draggable="true"]

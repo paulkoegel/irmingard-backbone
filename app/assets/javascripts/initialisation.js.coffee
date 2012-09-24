@@ -10,6 +10,16 @@ Backbone.Marionette.Renderer.render = (template, data) ->
 window.IG = new Backbone.Marionette.Application()
 
 $ ->
+  # hacky alternative to DOMNodeInserted, cf.: http://davidwalsh.name/detect-node-insertion
+  insertListener = (event) ->
+    if event.animationName == 'nodeInserted'
+      $(event.target).removeClass 'off-the-board'
+
+  # insertListener() MUST be declared before these
+  document.addEventListener('animationstart', insertListener, false) # standard + Firefox
+  document.addEventListener('webkitAnimationStart', insertListener, false) # Chrome + Safari
+  document.addEventListener('MSAnimationStart', insertListener, false) # IE
+  
   IG.start()
 
 IG.Models      = {}
@@ -24,7 +34,8 @@ class IG.AppLayout extends Backbone.Marionette.Layout
   template: 'layouts/application'
   el: '#l-game-container'
   regions:
-    header:  '#l-header-container'
+    navigation:  '#l-header-container--navigation-wrapper'
+    stack:   '#stack'
     piles:   '#l-piles-container'
     content: '#l-content-container'
 

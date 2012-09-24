@@ -1,0 +1,29 @@
+#stack
+  float: right
+
+#serve-new-cards
+  float: right
+  padding: 5px 12px
+  border: 1px solid shade(#2750a3, 10)
+  +user-select(none)
+  cursor: pointer
+  background: #2750a3
+  +border-radius(10px)
+  text-align: center
+  color: #eee
+  +text-shadow(0 0 2px #333)
+  +transition-property(background-color)
+  +transition-duration(0.2s)
+  +transition-timing-function(linear)
+  &:hover
+    color: #fcfcfc
+    background: shade(#2750a3, 15)
+  &[disabled]
+    background: #444
+
+.serve-new-cards--explanation
+  font-size: 9px
+
+.stack-counter
+  font-size: 11px
+  color: #aaa

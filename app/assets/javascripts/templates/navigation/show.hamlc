@@ -1,21 +1,6 @@
-.left
-  %h2.left
-    %a{href: 'https://github.com/paulwittmann/irmingard-backbone', target: '_blank'}
-      Irmingard
-  %a.instructions{href: 'https://github.com/paulwittmann/irmingard-backbone/blob/master/README.mdown', target: '_blank'}
+%li.l-navigation--item
+  %a{href: 'https://github.com/paulwittmann/irmingard-backbone/blob/master/README.mdown', target: '_blank'}
     How to play
-
-%ul.navigation-entries
-  -# %li.navigation-entry
-  -#   Home
-  -# %li.navigation-entry
-  -#   Save Game
-  -# %li.navigation-entry
-  -#   Profile
-  -# %li.navigation-entry
-  -#   Logout
-  %li
-    %button#serve-new-cards
-      %span Hit me!
-      %span.stack-counter
-        = "(#{IG.stack.get('cards').length})"
+%li.l-navigation--item
+  %a{onclick:'if(confirm("Really start a new game?")) window.location = "/";'}
+    New Game

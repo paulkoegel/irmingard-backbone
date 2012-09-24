@@ -1,23 +1,39 @@
+#l-action-container
+  +pie-clearfix
+  position: fixed
+  bottom: 0px
+  width: $page-container-width
+
+#l-piles-container
+  float: left
+
 #piles-wrapper
   +pie-clearfix
   margin: 0 auto 20px
-  width: 968px
+  //width: 948px
   height: 40px
 
 .m-pile
   padding: 0
   float: left
   margin: 0 10px 0 0
-  width: $column-width + 5
+  width: $column-width
   height: 40px
   position: relative
-  overflow: hidden
-  &:nth-child(2n+2)
-    margin-right: 20px
+  overflow-y: hidden
+  //background: shade($background-colour, 15)
+  //+border-top-left-radius(10px)
+  //+border-top-right-radius(10px)
+  //&:first-child
+  //  margin-left: 0
+  &:last-child
+    margin-right: 0
 
 .m-pile--label
-  margin-left: $padding
-  +opacity(0.4)
+  +opacity(0.8)
+  text-align: center
+  position: relative
+  top: $padding
 
 .m-pile_diamonds, .m-pile_hearts
   @extend .m-pile

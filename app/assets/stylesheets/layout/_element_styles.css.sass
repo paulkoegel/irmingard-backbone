@@ -1,3 +1,14 @@
+#l-gradient-layer
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  +background-image(radial-gradient(20px 17px, rgba(gray, 0.1) 550px, rgba(gray, 0.6) 800px)) //rgba(gray, 0.8) 750px))
+  z-index: 10
+  // click through this layer even though it's above eveything else
+  pointer-events: none
+
 #l-game-container
   +pie-clearfix
   position: relative
@@ -28,3 +39,12 @@
   left: 50%
   margin-left: -1*round($page-container-width/2)
   bottom: 20px
+
+.fork-me
+  z-index: 2
+  position: absolute
+  top: 26px
+  left: -12px
+  border: 0
+  &:hover
+    z-index: 11

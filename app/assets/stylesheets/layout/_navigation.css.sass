@@ -1,45 +1,46 @@
+#l-header-container
+  +pie-clearfix
+  width: 100%
+  padding: 4px $padding $half-padding
+  +background(linear-gradient(top center, #252525, #040404))
+  //background: #111
+  z-index: 11
+  position: relative
+  margin-bottom: $padding
+
+#l-header-wrapper
+  width: $page-container-width
+  margin: 0 auto
+
+.about
+  color: #aaa
+  font-size: 13px
+  float: right
+  line-height: 27px
+  > a
+    color: #3973e5
+
+
+#title
+  float: left
+  margin: 0 3*$padding 0 0
+  font-size: 20px
+  > a
+    font-weight: normal
+    color: #eee
+
 #l-navigation
   +pie-clearfix
-  > h2
-    font-size: 16px
-    font-weight: normal
-
-.instructions
-  display: block
-  float: right
-  margin: 19px 0 0 20px
-  line-height: 37px
-  vertical-align: bottom
-
-.navigation-entries
-  +pie-clearfix
-  margin: $padding 0
-  padding: 0
-  list-style-type: none
-  float: right
-.navigation-entry
+  list-style: none
   float: left
-  margin-right: $three-quarter-padding
-  &:last-child
-    margin-right: 0
 
-#serve-new-cards
-  border: 1px solid shade(#2750a3, 10)
-  +user-select(none)
-  cursor: pointer
-  background: #2750a3
-  +border-radius(4px)
-  text-align: center
-  color: #fcfcfc
-  +text-shadow(0 0 2px #333)
-  padding: 5px 10px
-  +transition-property(background-color)
-  +transition-duration(0.2s)
-  +transition-timing-function(linear)
-  &:hover
-    background: tint(#2750a3, 10)
-  &[disabled]
-    background: #444
-.stack-counter
-  font-size: 11px
-  color: #aaa
+.l-navigation--item
+  float: left
+  font-size: 16px
+  line-height: 27px
+  margin-right: 2*$padding
+  > a
+    color: #a0a0a0
+    cursor: pointer
+    &:hover
+      color: #eee

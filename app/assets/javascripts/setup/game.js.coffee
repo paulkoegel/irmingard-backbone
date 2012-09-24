@@ -42,4 +42,5 @@ IG.setupGame = ->
   IG.appLayout.content.show new IG.Views.ColumnsCollection(collection: IG.columns)
   IG.appLayout.piles.show new IG.Views.PilesCollection(collection: IG.piles)
   # has to happen here to display counter on 'Hit me!' button
-  IG.appLayout.header.show new IG.Views.NavigationShow()
+  IG.appLayout.stack.show new IG.Views.StackShow(model: IG.stack)
+  IG.appLayout.navigation.show new IG.Views.NavigationShow()

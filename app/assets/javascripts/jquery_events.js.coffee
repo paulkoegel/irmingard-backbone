@@ -1,7 +1,17 @@
 $ ->
   $('#serve-new-cards').click (event) ->
     event.preventDefault()
-    $button = $(event.currentTarget).attr('disabled', 'disabled')
+    IG.serveNewCards()
+
+  #document.onkeydown=function(e){ if(e.which == 17) isCtrl=true; if(e.which == 83 && isCtrl == true) { //run code for CTRL+S -- ie, save! return false; } if(e.which == 79 && isCtrl == true) { //run code for CTRL+O -- ie, open! return false; } if(e.which == 84 && isCtrl == true) { //run code for CTRL+T -- ie, new tab! return false; } }
+
+  document.onkeydown = (event) ->
+    if event.which == 13
+      IG.serveNewCards()
+      console.log 'pressed enter'
+
+  IG.serveNewCards = () ->
+    $button = $('#serve-new-cards').attr('disabled', 'disabled')
     setTimeout ->
       $button.removeAttr('disabled')
     , 1000
@@ -42,14 +52,3 @@ $ ->
     $(@).removeClass 'is-drop-hovered'
     IG.currentlyDraggedCard = undefined
   # - END super redundant code (copied from CardsShow) - - -
-
-
-  # hacky alternative to DOMNodeInserted, cf.: http://davidwalsh.name/detect-node-insertion
-  insertListener = (event) ->
-    if event.animationName == 'nodeInserted'
-      $(event.target).css('top', '0')
-
-  # insertListener() MUST be declared before these
-  document.addEventListener('animationstart', insertListener, false) # standard + Firefox
-  document.addEventListener('webkitAnimationStart', insertListener, false) # Chrome + Safari
-  document.addEventListener('MSAnimationStart', insertListener, false) # IE

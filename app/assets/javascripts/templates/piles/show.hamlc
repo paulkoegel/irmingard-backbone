@@ -1,1 +1,2 @@
-.m-pile--label= @suitSymbol
+.m-card_placeholder
+  .m-pile--label= @suitSymbol

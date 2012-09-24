@@ -1,14 +1,22 @@
+#l-header-container
+  #l-header-wrapper
+    %h1#title
+      %a{href: 'https://github.com/paulwittmann/irmingard-backbone', target:'_blank'}
+        Irmingard
+    #l-header-container--navigation-wrapper
+    .about
+      Built by
+      %a{href: 'http://railslove.com/paul_wittmann', target: '_blank'}
+        Paul Wittman
+      |
+      %a{href: 'http://twitter.com/wakkahari', target: '_blank'}
+        @wakkahari
+      |
+      %a{href: 'mailto:paul@railslove.com'}
+        paul@railslove.com
 #l-page-container
-  #l-header-container
-  #l-piles-container
+  #l-gradient-layer
   #l-content-container
-#l-footer-container
-  Built by
-  %a{href: 'http://railslove.com/paul_wittmann', target: '_blank'}
-    Paul Wittman
-  |
-  %a{href: 'http://twitter.com/wakkahari', target: '_blank'}
-    @wakkahari
-  |
-  %a{href: 'mailto:paul@railslove.com'}
-    paul@railslove.com
+  #l-action-container
+    #l-piles-container
+    #stack
