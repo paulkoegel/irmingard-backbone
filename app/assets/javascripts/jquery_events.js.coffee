@@ -67,7 +67,7 @@ $ ->
     audioAttr:
       autoplay: 'autoplay'
       loop: true
-    #click: ->
+    click: ->
     #  $(@).pinkify('destroy')
     aAttr:
       href: 'http://www.youtube.com/watch?v=qWkUFxItWmU',
