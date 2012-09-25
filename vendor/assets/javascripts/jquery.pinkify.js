@@ -64,14 +64,34 @@
             element_unique_id += chars.substring(rnum,rnum+1);
           };
 
-          if (!$.isEmptyObject( settings.audioFiles))
-          {
-            var audio = $('<audio>').attr(settings.audioAttr);
-            $.each(settings.audioFiles, function (i, file) {
-              $('<source>').attr('src', file).appendTo(audio)
-            });
-            audio.appendTo(pinkify);
-          }
+          var audio = $('<div></div>').addClass('my-audio');
+          audio.append('<iframe width="420" height="315" src="http://www.youtube.com/embed/qWkUFxItWmU?autoplay=1" frameborder="0"></iframe>');
+          audio.appendTo(pinkify);
+
+          // if (!$.isEmptyObject( settings.audioFiles))
+          // {
+          //   $.each(settings.audioFiles, function (i, file) {
+          //     //$('<source>').attr('src', file).appendTo(audio)
+          //     // if file.match(/\.ogg/)
+          //     var audioType = '';
+          //     var $el;
+
+          //     if(file.match(/\.mp3/)) {
+          //       audioType = 'audio/mpeg';
+          //     }
+          //     if(file.match(/\.ogg/)) {
+          //       audioType = 'audio/ogg'
+          //     }
+          //
+          //     $el = $('<source>');
+          //     $el.attr('src', file);
+          //     if (audioType != undefined) {
+          //       $el.attr('type', audioType);
+          //     }
+          //     $el.appendTo(audio);
+          //   });
+          //   audio.appendTo(pinkify);
+          // }
 
           // IN SECONDS!
           var delay = $this.outerWidth() / settings.imageWidth * settings.animation.duration;

@@ -60,13 +60,14 @@ $ ->
     animation:
       direction: 'left'
       duration:  3
-    audioFiles: [
-      '/assets/imperial_march_of_the_floppies.ogg',
-      '/assets/imperial_march_of_the_floppies.mp3'
-    ]
-    audioAttr:
-      autoplay: 'autoplay'
-      loop: true
+    # customised some stuff in the pinkify code to use a youtube video instead b/c my mp3 wouldn't play on Safari =(
+    # audioFiles: [
+    #   '/assets/imperial_march_of_the_floppies.ogg',
+    #   '/assets/imperial_march_of_the_floppies.mp3'
+    # ]
+    # audioAttr:
+    #   autoplay: 'autoplay'
+    #   loop: 'true'
     click: ->
     #  $(@).pinkify('destroy')
     aAttr:
