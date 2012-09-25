@@ -96,7 +96,7 @@ $ ->
     $('#l-lightbox-background, #l-lightbox').toggle()
     data = "IG.stack.set(#{JSON.stringify(IG.stack)}); IG.columns.reset(#{JSON.stringify(IG.columns)}); IG.piles.reset(#{JSON.stringify(IG.piles)});"
     $octetDownload = $('.octet-download')
-    $octetDownload.attr('href', "data:text/octet-stream;base64,#{$.base64.encode(data)}")
+    $octetDownload.attr('href', "data:text/octet-stream;base64,#{$.base64.encode(data)}").attr('target', '_blank')
 
   fileDropZone = document.getElementById('file-drop-zone')
   fileDropZone.addEventListener('dragover', IG.handleFileDragOver, false)
