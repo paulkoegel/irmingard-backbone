@@ -35,6 +35,7 @@ Technologies
 + [HAML Coffee Templates](https://github.com/netzpirat/haml_coffee_assets)
 + [Gon gem](https://github.com/gazay/gon)
 + Rails 3.2.8
++ [jQuery Pinkify](https://github.com/Holek/Pinkify)
 + tests are in the making and will be written with Jasmine + [Jasminerice](https://github.com/bradphelan/jasminerice) + [Guard Jasmine](https://github.com/netzpirat/guard-jasmine) (Phantom JS)
 
 
@@ -47,7 +48,6 @@ Planned features
 + collaboration mode with server-side validation of moves and real time move propagation handled by web sockets (using [FAYE](http://faye.jcoglan.com), most likely)
 + IE7 support =)
   no really - [this is what it currently looks like in IE7](https://raw.github.com/paulwittmann/irmingard-backbone/master/doc/irmingard_in_ie7.png) and you're even able to drag and drop stuff.
-
 
 
 Why "Irmingard"?
@@ -104,7 +104,7 @@ Acknowledgements
 Big thanks to Jeremy Ashkenas for creating [CoffeeScript](http://coffeescript.org) &amp; [Backbone.js](http://backbonejs.org), to Derick Bailey for building [Backbone Marionette](https://github.com/marionettejs/backbone.marionette), and to [Bumi](http://railslove.com/bumi) for introducing me to Backbone in the first place - back in 2010 ;)
 
 ### Graphics
-Thank you for providing the card images to the following authors:
+Thank you for providing the card images to the following artists:
 
 + Fronts: [Yozzo](http://yozzo.deviantart.com) - [http://yozzo.deviantart.com/art/playing-cards-source-66472891?q=boost%3Apopular%20deck%20cards&qo=86](http://yozzo.deviantart.com/art/playing-cards-source-66472891?q=boost%3Apopular%20deck%20cards&qo=86)
 + Back: [Adam Levermore](http://lexigeek.deviantart.com) - [http://browse.deviantart.com/?qh=&section=&global=1&q=playing+card+back#/dssugt](http://browse.deviantart.com/?qh=&section=&global=1&q=playing+card+back#/dssugt)
