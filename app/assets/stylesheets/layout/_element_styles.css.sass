@@ -63,21 +63,33 @@
   z-index: 13
   padding: 5*$padding 2*$padding
   text-align: center
-  color: #eee
-  +box-shadow(0 0 5px rgba(#444, 0.5))
+  color: #ccc
+  +box-shadow(0 0 10px rgba(#000, 1.0))
   .octet-download
     display: block
-    font-size: 35px
+    font-size: 32px
     margin-top: 2*$padding
+    margin-bottom: 3*$padding
     color: tint($blue, 60)
+  hr
+    height: 1px
+    background: $blue
+    border: 0
+    margin: 0 auto 2*$padding
 
 #file-drop-zone
   width: 300px
   height: 100px
   text-align: center
-  margin: 4*$padding auto 0
+  margin: $padding auto 0
   border: 2px dotted #ddd
   +border-radius(10px)
+  &:hover
+    border-color: #fcfcfc
+    .file-drop-zone--note
+      color: #fcfcfc
+      cursor: default
+
 .file-drop-zone--note
-  margin-top: 30px
+  margin-top: 35px
   color: #999

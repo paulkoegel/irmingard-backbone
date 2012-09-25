@@ -10,7 +10,9 @@
   margin-bottom: $padding
 
 #l-header-wrapper
+  +pie-clearfix
   width: $page-container-width
+  height: 27px
   margin: 0 auto
 
 .about
@@ -30,11 +32,21 @@
     font-weight: normal
     color: #eee
 
+#l-header-container--navigation-wrapper
+  +pie-clearfix
+  float: right
+  // magic number, don't ask me why...
+  width: 869px
+
 #l-navigation
   +pie-clearfix
   list-style: none
   float: left
   color: #a0a0a0
+  width: 869px
+  > ul
+    list-style-type: none
+    margin: 0
 
 .l-navigation--splitter
   width: 2px
@@ -48,8 +60,20 @@
   font-size: 16px
   line-height: 27px
   margin-right: 2*$padding
+  &.last
+    float: right
+    margin-right: 0
+    > a
+      color: $blue
+      &:hover
+        color: tint($blue, 30)
   > a
     color: #a0a0a0
     cursor: pointer
     &:hover
       color: #eee
+
+.save-load-game
+  > img
+    position: relative
+    top: 2px

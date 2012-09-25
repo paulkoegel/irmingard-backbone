@@ -94,7 +94,6 @@ $ ->
   $('.save-load-game').click (event) ->
     event.preventDefault()
     $('#l-lightbox-background, #l-lightbox').toggle()
-    #$('#l-lightbox').toggle()
     data = "IG.stack.set(#{JSON.stringify(IG.stack)}); IG.columns.reset(#{JSON.stringify(IG.columns)}); IG.piles.reset(#{JSON.stringify(IG.piles)});"
     $octetDownload = $('.octet-download')
     $octetDownload.attr('href', "data:text/octet-stream;base64,#{$.base64.encode(data)}")

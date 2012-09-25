@@ -21,11 +21,12 @@
     #l-game-container
     #l-lightbox-background
     #l-lightbox
-      Download a file with your current game state:
-      = link_to 'Download save game', '#', :class => 'octet-download', :download => 'irmingard.js'
+      Download current game state:
+      = link_to '#', :class => 'octet-download', :download => 'irmingard.js' do
+        %span.icon.download
+        Download save game
+      %hr
+      Restore a previous game:
       #file-drop-zone
         .file-drop-zone--note
           Drag and drop save game file here
-          <br>
-          to load it.
-
