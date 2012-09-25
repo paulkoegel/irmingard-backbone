@@ -14,7 +14,7 @@
     .about
       Built by
       %a{href: 'http://railslove.com/paul_wittmann', target: '_blank'}
-        Paul Wittman
+        Paul Wittmann
       |
       %a{href: 'http://twitter.com/wakkahari', target: '_blank'}
         @wakkahari
