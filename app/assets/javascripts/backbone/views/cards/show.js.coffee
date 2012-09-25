@@ -14,6 +14,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
   onRender: ->
     # A card added via 'Hit me!' doesn't have a column set for Backbone Relational on render - that's how we distinguish them from the last card of a column, which also gets rerendered (to update draggability) when a new card is added to a column. We don't want to run an animation when a card is added to a column via drag and drop.
     # This doesn't fix the problem for Piles, though. To show cards there, we're simply using the power of CSS. .off-the-board only sets top to 700px for cards nested within .m-column
+    # TODO: remaining problem: card pulled back to the board form a pile gets rerendered here as well - on render they also don't have neither a pile nor a column association & so they're animated in =( no idea how to prevent this without adding specific card attributes when certain interactions start so we can distinguish what kind of behaviour we want here.
     if !@model.get('column')? && !@model.get('pile')
       $(@el).addClass('off-the-board')
 
