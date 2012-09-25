@@ -108,3 +108,5 @@ Thank you for providing the card images to the following artists:
 
 + Fronts: [Yozzo](http://yozzo.deviantart.com) - [http://yozzo.deviantart.com/art/playing-cards-source-66472891?q=boost%3Apopular%20deck%20cards&qo=86](http://yozzo.deviantart.com/art/playing-cards-source-66472891?q=boost%3Apopular%20deck%20cards&qo=86)
 + Back: [Adam Levermore](http://lexigeek.deviantart.com) - [http://browse.deviantart.com/?qh=&section=&global=1&q=playing+card+back#/dssugt](http://browse.deviantart.com/?qh=&section=&global=1&q=playing+card+back#/dssugt)
++ Page background texture is based on: [Fuzzimo.com's Free Hi-Res Canvas Textures + Seamless](http://www.fuzzimo.com/free-hi-res-canvas-textures-seamless)
++ Save icon courtesy of [Turbomilk](http://turbomilk.com)
