@@ -26,7 +26,7 @@
 #l-content-container
   +pie-clearfix
   position: relative
-  z-index: 1
+  z-index: 2
   background-color: $background-colour
   background-image: image-url('pattern.png')
   background-position: 20px 20px
@@ -37,8 +37,11 @@
   top: 26px
   left: -12px
   border: 0
+  background-image: url('https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png')
+  width: 149px
+  height: 149px
   &:hover
-    z-index: 11
+    background-image: url('https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png')
 
 #l-lightbox-background
   display: none
