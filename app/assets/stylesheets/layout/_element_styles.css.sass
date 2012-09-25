@@ -40,6 +40,16 @@
   &:hover
     z-index: 11
 
+#l-lightbox-background
+  display: none
+  position: fixed
+  left: 0
+  top: 0
+  height: 100%
+  width: 100%
+  z-index: 12
+  background: rgba(#333, 0.8)
+
 #l-lightbox
   display: none
   width: 400px
@@ -50,7 +60,7 @@
   margin-top: -200px
   background: shade($blue, 60)
   +border-radius(10px)
-  z-index: 12
+  z-index: 13
   padding: 5*$padding 2*$padding
   text-align: center
   color: #eee
