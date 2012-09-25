@@ -101,3 +101,6 @@ $ ->
   fileDropZone = document.getElementById('file-drop-zone')
   fileDropZone.addEventListener('dragover', IG.handleFileDragOver, false)
   fileDropZone.addEventListener('drop', IG.handleFileDrop, false)
+
+  $('.l-lightbox--close-button').click ->
+    $('#l-lightbox-background, #l-lightbox').hide()
