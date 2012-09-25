@@ -43,7 +43,7 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
     $(@el).addClass 'low-opacity'
 
   handleDragEnter: (event) ->
-    return false unless @isDropTarget() #@model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
+    return false unless @isDropTarget()
     $(event.currentTarget).addClass 'is-drop-hovered'
 
   handleDragOver: (event) ->
@@ -76,6 +76,8 @@ class IG.Views.CardsShow extends Backbone.Marionette.ItemView
 
 
   isDropTarget: ->
+    # prevent any further action when we're, e.g., dragging a save game file over a card
+    return false unless IG.currentlyDraggedCard?
     @model.isDropTargetFor(IG.currentlyDraggedCard) or $(@el).hasClass('m-card_placeholder')
 
   discardToPile: ->

@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery.pinkify
+#= require jquery.base64
 #= require underscore
 #= require hamlcoffee
 #= require backbone

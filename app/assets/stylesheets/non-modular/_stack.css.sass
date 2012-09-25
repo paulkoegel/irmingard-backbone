@@ -4,10 +4,10 @@
 button.serve-new-cards
   float: right
   padding: 5px 12px
-  border: 1px solid shade(#2750a3, 10)
+  border: 1px solid shade($blue, 10)
   +user-select(none)
   cursor: pointer
-  background: #2750a3
+  background: $blue
   +border-radius(10px)
   text-align: center
   color: #eee
@@ -17,7 +17,7 @@ button.serve-new-cards
   +transition-timing-function(linear)
   &:hover
     color: #fcfcfc
-    background: shade(#2750a3, 15)
+    background: shade($blue, 15)
   &[disabled]
     background: #444
     cursor: auto

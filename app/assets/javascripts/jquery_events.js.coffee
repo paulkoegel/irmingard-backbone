@@ -73,3 +73,35 @@ $ ->
     aAttr:
       href: 'http://www.youtube.com/watch?v=qWkUFxItWmU',
       target: '_blank'
+
+  IG.handleFileDragOver = (event) ->
+    event.stopPropagation()
+    event.preventDefault()
+    event.dataTransfer.dropEffect = 'copy'
+    #console.log 'file drag over'
+
+  IG.handleFileDrop = (event) ->
+    event.stopPropagation()
+    event.preventDefault()
+
+    files = event.dataTransfer.files
+    console.log files.length
+    console.log files[0]
+    reader = new FileReader()
+    # callback for when file's contents have been read in readAsText below
+    reader.onloadend = ->
+      console.log reader.result
+      eval(reader.result)
+      $('#l-lightbox').hide()
+    reader.readAsText(files[0])
+
+  $('.save-load-game').click (event) ->
+    event.preventDefault()
+    $('#l-lightbox').toggle()
+    data = "IG.stack.set(#{JSON.stringify(IG.stack)}); IG.columns.reset(#{JSON.stringify(IG.columns)}); IG.piles.reset(#{JSON.stringify(IG.piles)});"
+    $octetDownload = $('.octet-download')
+    $octetDownload.attr('href', "data:text/octet-stream;base64,#{$.base64.encode(data)}")
+
+  fileDropZone = document.getElementById('file-drop-zone')
+  fileDropZone.addEventListener('dragover', IG.handleFileDragOver, false)
+  fileDropZone.addEventListener('drop', IG.handleFileDrop, false)
