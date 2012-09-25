@@ -44,9 +44,6 @@ IG.Models.Pile = Backbone.RelationalModel.extend
   allPilesFull: ->
     pileLengths = IG.piles.map (pile) ->
       pile.get('cards').length
-    console.log "pile lengths: #{pileLengths}"
-    x = _.reduce pileLengths, (memo, pileLength) ->
+    _.reduce pileLengths, (memo, pileLength) ->
       memo = memo && (pileLength == 13)
     , true
-    console.log "all piles full? #{x}"
-    return x
