@@ -51,3 +51,24 @@ $ ->
     $(@).removeClass 'is-drop-hovered'
     IG.currentlyDraggedCard = undefined
   # - END super redundant code (copied from CardsShow) - - -
+
+  IG.gameWon = $('body').pinkify
+  IG.gameWonParameters=
+    imageUrl:    '/assets/at-at.gif'
+    imageWidth:  140
+    imageHeight: 104
+    animation:
+      direction: 'left'
+      duration:  3
+    audioFiles: [
+      '/assets/imperial_march_of_the_floppies.ogg',
+      '/assets/imperial_march_of_the_floppies.mp3'
+    ]
+    audioAttr:
+      autoplay: 'autoplay'
+      loop: true
+    #click: ->
+    #  $(@).pinkify('destroy')
+    aAttr:
+      href: 'http://www.youtube.com/watch?v=qWkUFxItWmU',
+      target: '_blank'
