@@ -2,9 +2,11 @@
   %li.l-navigation--item
     %a{href: 'https://github.com/paulwittmann/irmingard-backbone/blob/master/README.mdown', target: '_blank'}
       How to play
+  .l-navigation--splitter
   %li.l-navigation--item
     %a{onclick:'if(confirm("Really start a new game?")) window.location = "/";'}
       New Game
+  .l-navigation--splitter
   %li.l-navigation--item
     %a.save-load-game{href: '#'}
       %img{src: '/assets/save.png'}
