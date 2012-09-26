@@ -17,15 +17,7 @@
 #= require setup/game
 #= require_tree ./backbone/models
 #= require_tree ./backbone/collections
-
-#= require_directory ./backbone/views/navigation
-#= require_directory ./backbone/views/games
-#= require_directory ./backbone/views/cards
-#= require_directory ./backbone/views/columns
-
+#= require_tree ./backbone/views
 #= require_tree ./backbone/routers
-#= require_tree ./backbone/controllers
 
 #= require jquery_events
-
-#= require_tree .
