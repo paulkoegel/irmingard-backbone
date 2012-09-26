@@ -46,7 +46,7 @@ Planned features
 + improve UI
 + save game state
 + collaboration mode with server-side validation of moves and real time move propagation handled by web sockets (using [FAYE](http://faye.jcoglan.com), most likely)
-+ IE7 support =)
++ IE8 support =)
   no really - [this is what it currently looks like in IE7](https://raw.github.com/paulwittmann/irmingard-backbone/master/doc/irmingard_in_ie7.png) and you're even able to drag and drop stuff.
 
 

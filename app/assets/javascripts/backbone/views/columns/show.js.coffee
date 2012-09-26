@@ -9,3 +9,7 @@ class IG.Views.ColumnsShow extends Backbone.Marionette.CompositeView
   initialize: ->
     @itemView = IG.Views.CardsShow
     @collection = @model.get('cards')
+
+  onRender: ->
+    if IG.columns.indexOf(@model) == IG.columns.length - 1
+      $(@el).addClass('last')

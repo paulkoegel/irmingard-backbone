@@ -5,6 +5,7 @@ $ ->
 
   # serve new cards on pressing 'Enter'
   document.onkeydown = (event) ->
+    event = event || window.event # fallback for IE7&8
     if event.which == 13
       IG.serveNewCards()
 
