@@ -15,12 +15,10 @@ $ ->
     if event.animationName == 'nodeInserted'
       $(event.target).removeClass 'off-the-board'
 
-  # Modernizr is only loaded for browsers < IE9
-  if !Modernizr? or Modernizr.cssanimations
-    # insertListener() MUST be declared before these
-    document.addEventListener('animationstart', insertListener, false) # standard + Firefox
-    document.addEventListener('webkitAnimationStart', insertListener, false) # Chrome + Safari
-    document.addEventListener('MSAnimationStart', insertListener, false) # IE
+  # insertListener() MUST be declared before these
+  document.addEventListener('animationstart', insertListener, false) # standard + Firefox
+  document.addEventListener('webkitAnimationStart', insertListener, false) # Chrome + Safari
+  document.addEventListener('MSAnimationStart', insertListener, false) # IE
 
   IG.start()
 
