@@ -18,7 +18,7 @@ How to play
 Irmingard is played with two sets (104 cards in total) of four suits (♠, ♣, ♦, ♥) with card values from Ace, 2, 3, ... Queen, King - without Jokers. The goal of the game is to clear away all cards to discard piles, where cards are ordered by suit and ascending value (Aces first).
 The game starts with a board filled with cards in columns of 1, 2, 3, 4, 5, 4, 3, 2, and 1 cards. The only cards on the board whose face you can see are the ones at the bottom of a column, all cards above them are flipped and blocked. You can rearrange cards by putting cards of a lower value below cards of a different colour. Example: 7 of hearts can go below an 8 of spades or an 8 of clubs.
 At the beginning of the game, all cards that aren't on the board are in a stack (which is not shown in this implementation of the game), and all eight piles are empty. Once you have a moveable Ace it can be discarded on one of the eight piles (2 sets of 4 suits, so we have 8 Aces in the game, each with a duplicate).
-When no more moves are left, new open cards can be put at the bottom of each pile by pressing the 'Hit me' butto in the top right. This continues until you've cleared the entire board or have run out of moves.
+When no more moves are left, new open cards can be put at the bottom of each pile by pressing the 'Hit me' button in the top right. This continues until you've cleared the entire board or have run out of moves.
 
 + when a column on the game board is empty only Kings can be dropped on them
 + the first card to discard on a pile must be an Ace
