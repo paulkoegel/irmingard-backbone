@@ -25,6 +25,11 @@ When no more moves are left, new open cards can be put at the bottom of each pil
 + top cards from piles can be dragged back onto the board (comes in very handy in the late game, believe me)
 
 
+Making of
+---------
+The slides of my presentation "Solitaire mit Backbone" (German) from November 2012's [CologneJS](http://colognejs.de) can be found here:
+[http://paulwittmann.github.com/colognejs-talk-2012-11](http://paulwittmann.github.com/colognejs-talk-2012-11])
+
 Technologies
 ------------
 + HTML5 drag and drop API (I used this [HTML5 Rocks Tutorial](http://www.html5rocks.com/en/tutorials/dnd/basics))
