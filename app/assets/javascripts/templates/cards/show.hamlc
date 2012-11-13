@@ -1,1 +1,1 @@
-%img{:src => "#{if @open then @imagePath else @backImagePath}"}
+%img{src: "#{if @open then @imagePath else @backImagePath}"}
