@@ -37,6 +37,10 @@ The slides of my presentation "Solitaire mit Backbone" (German) from November 20
 
 Technologies
 ------------
+
+**Only using Rails as a build tool (compiles CoffeeScript, HAML Coffee etc.). I'd use Grunt or Gulp for this today.
+All game logic - even saving/loading of games - resides in client-side JavaScript.**
+
 + HTML5 drag and drop API (I used this [HTML5 Rocks Tutorial](http://www.html5rocks.com/en/tutorials/dnd/basics))
 + [Backbone.js](http://backbonejs.org)
 + [CoffeeScript](http://coffeescript.org)
