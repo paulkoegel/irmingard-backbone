@@ -1,9 +1,11 @@
 IRMINGARD
 =========
 
-**DEMO**: [http://irmingard.herokuapp.com](http://irmingard.herokuapp.com)
+_For the reimplementation in ClojureScript and Om see: [https://github.com/paulwittmann/omingard](https://github.com/paulwittmann/omingard)_
 
-Irmingard is a patience card game. The goal of the game is to clear away all cards from the board to discard piles. At the moment it's single player only but I'd love to be able to play it simultaneously with my big sister.
+**PLAY**: [http://irmingard.herokuapp.com](http://irmingard.herokuapp.com)
+
+Irmingard is a patience card game. The goal of the game is to clear away all cards from the board to discard piles.
 
 
 TL;DR Rules
