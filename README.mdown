@@ -1,7 +1,7 @@
 IRMINGARD
 =========
 
-_For the reimplementation in ClojureScript and Om see: [https://github.com/paulwittmann/omingard](https://github.com/paulwittmann/omingard)_
+_For the reimplementation in ClojureScript and Om see: [https://github.com/paulkogel/omingard](https://github.com/paulkogel/omingard)_
 
 **PLAY**: [http://irmingard.herokuapp.com](http://irmingard.herokuapp.com)
 
@@ -16,7 +16,7 @@ TL;DR Rules
 + double click on a card to discard it to a pile
 + press 'hit me' to get new cards
 
-![screenshot of the game board](https://raw.github.com/paulwittmann/irmingard-backbone/master/doc/irmingard_explained.png)
+![screenshot of the game board](https://raw.github.com/paulkogel/irmingard-backbone/master/doc/irmingard_explained.png)
 
 How to play
 -----------
@@ -33,7 +33,7 @@ When no more moves are left, new open cards can be put at the bottom of each pil
 Making of
 ---------
 The slides of my presentation "Solitaire mit Backbone" (German) from November 2012's [CologneJS](http://colognejs.de) can be found here:
-[http://paulwittmann.github.com/colognejs-talk-2012-11](http://paulwittmann.github.com/colognejs-talk-2012-11)
+[http://paulkogel.github.com/colognejs-talk-2012-11](http://paulkogel.github.com/colognejs-talk-2012-11)
 
 Technologies
 ------------
